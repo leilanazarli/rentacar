@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // let carDiv = document.createElement("div");
         // carDiv.className = "car-card";
         carsContainer.innerHTML += `
-            <div class="card col-3" style="width: 305px;margin-right: 20px;">
+            <div class="card col-3" style="width: 258px;">
                         <div class="card-img">
                             <a href=""><img src="${element.image}" class="car-img"></a>
                             <p class="cars-years">${element.il}</p>
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             <div class="card-title">
                                 <a href="" class="car-title-name">${element.marka} ${element.ad}</a>
                             </div>
-                            <div class="card-cars-about row " style="flex-wrap: nowrap;">
+                            <div class="card-cars-about row m-0 " >
                                 <div class="col-3">
                                     <img src="./assets/img/seat.png" alt="" style="filter: grayscale(100%);"> 
                                     <span class="passenger">${element.oturacaq}</span>

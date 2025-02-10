@@ -1,88 +1,5 @@
 
 
-let currentSlide = 0;
-const slides = document.querySelectorAll('.carousel-slide');
-const thumbnails = document.querySelectorAll('.carousel-thumbnails img');
-
-function showSlide(index) {
-    slides[currentSlide].classList.remove('active');
-    thumbnails[currentSlide].classList.remove('active-thumbnail');
-    currentSlide = (index + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
-    thumbnails[currentSlide].classList.add('active-thumbnail');
-}
-
-function changeSlide(direction) {
-    showSlide(currentSlide + direction);
-}
-
-
-// İlk şəkli göstər
-showSlide(0);
-// Linki kopyalamaq funksiyası
-function copyLink(link) {
-    navigator.clipboard.writeText(link)
-        .then(() => {
-            alert("Link kopyalandı: " + link);
-        })
-        .catch((error) => {
-            alert("Link kopyalanmadı: " + error);
-        });
-}
-
-// Heart işarəsini dəyişdirmək funksiyası
-function toggleHeart(element) {
-    if (element.textContent === "❤️") {
-        element.textContent = "♡"; // Ürəyi boşalt
-    } else {
-        element.textContent = "❤️"; // Ürəyi doldur
-    }
-}
-
-// Fullscreen funksiyası (mövcud olanı saxlamaq üçün)
-// function openFullscreen(element) {
-//     const img = element.parentElement.parentElement.querySelector('img');
-//     if (img.requestFullscreen) {
-//         img.requestFullscreen();
-//     } else if (img.webkitRequestFullscreen) {
-//         img.webkitRequestFullscreen();
-//     } else if (img.msRequestFullscreen) {
-//         img.msRequestFullscreen();
-//     }
-// }
-
-function openFullscreen(element) {
-    const img = element.parentElement.parentElement.querySelector('img');
-    const fullscreenClose = document.querySelector('.fullscreen-close');
-
-    img.classList.add('fullscreen-active');
-    document.body.classList.add('fullscreen-blur');
-    
-    fullscreenClose.style.display = 'block';
-
-    fullscreenClose.addEventListener('click', () => {
-        closeFullscreen();
-    });
-}
-
-function closeFullscreen() {
-    const fullscreenImg = document.querySelector('.fullscreen-active');
-    fullscreenImg.classList.remove('fullscreen-active');
-    document.body.classList.remove('fullscreen-blur');
-    document.querySelector('.fullscreen-close').style.display = 'none';
-}
-
-
-// function closeFullscreen() {
-//     if (document.exitFullscreen) {
-//         document.exitFullscreen();
-//     } else if (document.webkitExitFullscreen) {
-//         document.webkitExitFullscreen();
-//     } else if (document.msExitFullscreen) {
-//         document.msExitFullscreen();
-//     }
-// }
-
 function openBookingForm() {
     const bookingForm = document.getElementById('bookingForm');
     bookingForm.style.display = 'flex';
@@ -95,7 +12,7 @@ function closeBookingForm() {
     document.body.style.overflow = 'auto'; // Səhifənin sürüşməsini bərpa edir
 }
 
-let carAboutpicture=document.querySelector(".carousel-container")
+// let carAboutpicture=document.querySelector(".carousel-container")
 let carVideo=document.querySelector(".car-about-video")
 let carousel_slides=document.querySelector(".carousel-slides")
 
@@ -116,24 +33,143 @@ async function getvideo() {
     
 }
 getvideo()
-
-// async function getpicture() {
-//     let res=await axios(`${Base_url}/${id}`)
-//     let data=res.data
+let car_about_picture=document.querySelector(".car-about-picture")
+async function getCard() {
+    car_about_picture.innerHTML=""
+    let res=await axios(`${Base_url}/${id}`)
+    let data=res.data
+    car_about_picture.innerHTML=`
+        <h1 class="car-about-name">${data.marka} ${data.ad}</h1>
+<div id="carouselExampleIndicators" data-mdb-carousel-init class="carousel slide carousel-fade col-8" data-mdb-ride="carousel">
+  <div class="carousel-inner ">
+    <div class="carousel-item active">
+      <img src="${data.image}" class="d-block w-100" alt="..." />
+    </div>
+    <div class="carousel-item">
+      <img src="${data.img1}" class="d-block w-100"
+        alt="..." />
+    </div>
+    <div class="carousel-item">
+      <img src="${data.img2}" class="d-block w-100" alt="..." />
+    </div>
+  </div>
+  <button data-mdb-button-init class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleIndicators"
+    data-mdb-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button data-mdb-button-init class="carousel-control-next" type="button" data-mdb-target="#carouselExampleIndicators"
+    data-mdb-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+  <div class="carousel-indicators" style="margin-bottom: -20px;">
+    <button  type="button" data-mdb-button-init data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="0" class="active"
+      aria-current="true" aria-label="Slide 1" style="width: 100px;">
+      <img class="d-block w-100"
+        src="${data.image}" class="img-fluid" />
+    </button>
+    <button  type="button" data-mdb-button-init data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="1"
+      aria-label="Slide 2" style="width: 100px;">
+      <img class="d-block w-100"
+        src="${data.img1}" class="img-fluid" />
+    </button>
+    <button  type="button" data-mdb-button-init data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="2"
+      aria-label="Slide 3" style="width: 100px;">
+      <img class="d-block w-100"
+        src="${data.img2}" class="img-fluid" />
+    </button>
+  </div>
+</div>
+                    <div class="supplier-booking-container col-4 ">
+                    <div class="supplier-card ">
+                        <div class="logo">
+                            <img src="./assets/img/logo.jpeg" alt="EKAR Logo">
+                            <p>Mamedov Rent A Car</p>
+                        </div>
+                        <h2 class="title">BİRBAŞA REZERVASYON EDİN</h2>
+                        <div class="action-buttons">
+                            <a href="tel:+994 055 296 54 50" class="call-button">📞</a>
+                            <a href="" class="whatsapp-button">WhatsApp</a>
+                        </div>
+                        <div class="pricing">
+                            <div class="price-item">
+                                <span class="price">${data.qiymet} AZN</span>
+                                <span class="duration">/ gün</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price">${data.qiymetHefte} AZN</span>
+                                <span class="duration">/ Həftə</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price"> ${data.qiymetAy} AZN</span>
+                                <span class="duration">/ Ay </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="booking-section">
+                    <div class="section-header">
+                            <span></span>
+                            <h3>BOOK ONLINE</h3>
+                            <span></span>
+                    </div>
+                    <a href="#" class="reserve-button" onclick="openBookingForm()">RESERVE NOW</a>
+                    </div>
+                </div>
+                </div>     
+             
+    `
     
-// }
-// getpicture()
 
-
-// async function commonCardsget() {
-    //     let res=await axios(`${Base_url}`)
-    //     // let data=res.data
-    //     let datalar=res.sort(() => 0.5 - Math.random()).slice(0, count)
-    //     console.log(datalar);
+}
+getCard()
+        
+    let car_about_price=document.querySelector(".car-about-price")
+    async function getPrice() {
+        car_about_price.innerHTML=""
+        let res=await axios(`${Base_url}/${id}`)
+        let data=res.data
+        car_about_price.innerHTML=`
+        <h1>Qiymət</h1>
+        <div class="row">
+        <div class="col-5"><p>${data.qiymet} AZN <span>/günü</span></p></div> 
+        <div class="col-2"><span class="line" style="color: white; font-size: 45px;">|</span></div>
+        <div class="col-5"><p style="font-size: 30px;">Bir günlük kirayələmək mümkündür.</p></div>
+        </div> 
+        
+        `
+        
+    }  
+    getPrice()
+    let carNameFull=document.querySelector(".carNameFull")
+    async function getcarName() {
+        carNameFull.innerHTML=""
+        let res=await axios(`${Base_url}/${id}`)
+        let data=res.data
+        carNameFull.innerHTML=`
+        ${data.marka} ${data.ad} ${data.il}
+        
+        `
+        
+    }  
+    getcarName()
     
-    //     // if(data.sort(() => 0.5 - Math.random()).slice(0, count))
-    // }
-    // commonCardsget()
+    let car_about_title=document.querySelector(".car-about-title")
+    async function getdescription() {
+        car_about_title.innerHTML=""
+        let res=await axios(`${Base_url}/${id}`)
+        let data=res.data
+        car_about_title.innerHTML=`
+         <h1 class="about">Haqqında</h1>
+                    <p><span>Azərbaycanca</span><br>Gəncə şəhərində ${data.il}-cü il ${data.marka} ${data.ad} ilə rahat və sərfəli səyahətə çıxın. Bu avtomobil güclü mühərrik və geniş iç məkanı ilə uzun məsafələr üçün mükəmməl seçimdir. 7/24 xidmətimizlə Kia Optima 2014-ü asanlıqla icarəyə götürün və Gəncə şəhərində komfortlu bir sürüşün zövqünü çıxarın.</p>
+                    <p><span>English</span><br>Take a comfortable and affordable trip with the  ${data.il} ${data.marka} ${data.ad} in Ganja city. This car, with its powerful engine and spacious interior, is the perfect choice for long-distance travels. Take advantage of our 24/7 service and easily rent the 2014 Kia Optima to enjoy a smooth and comfortable ride in Ganja.</p>
+                    <p><span>Pусский</span><br>Отправьтесь в комфортное и выгодное путешествие на ${data.marka} ${data.ad}  ${data.il} года в городе Гянджа. Этот автомобиль с мощным двигателем и просторным салоном — идеальный выбор для дальних поездок. Воспользуйтесь нашей круглосуточной услугой и легко арендуйте Kia Optima 2014 года, чтобы насладиться комфортной поездкой по Гяндже.</p>
+                    
+        `
+        
+        }
+        getdescription()
+        
     function getRandomCards(cards, count) {
         if (!Array.isArray(cards) || cards.length === 0) {
             console.error("Kart siyahısı boşdur və ya səhv formatdadır!");
@@ -200,4 +236,5 @@ getvideo()
     }
     
     fetchCards();
+    
     

@@ -15,7 +15,7 @@ function createfav() {
 
     favoriteData.forEach(element => {
         row.innerHTML += `
-             <div class="card col-4">
+             <div class="card col-3" style="width=:256px;">
                     <div class="card-img">
                       <a href=""><img src="${element.car_imgvalue}" class="car-img" ></a>
                       <p class="cars-years">${element.car_years}</p>
@@ -43,7 +43,7 @@ function createfav() {
                         </div>
                       </div>
                       <div class="card-cars-price">
-                        <button class="btn btn-danger" style="border-radius: 55px;" >Rent Now</button>
+                       <a class="btn btn-danger" href="./car-about.html?id=${element.id}" style="border-radius: 55px;">Rent Now</a>
                         <p><span class="car-price">${element.car_price}</span> ₼ /günü</p>
                       </div>
                     </div>
