@@ -1,0 +1,216 @@
+.cars{
+background-color: rgb(11, 19, 21);
+  .cars-section1 {
+      position: relative;
+      width: 100%;
+      // height: auto;
+      padding-top: 70px;
+      text-align: center;
+       img {
+          width: 100%;
+          height: auto;
+      }
+      .overlay {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: white;
+          text-align: center;
+           h1 {
+              font-size: 60px;
+              font-weight: bold;
+          }
+          p {
+              font-size: 20px;
+              margin-bottom: 20px;
+          }
+      }
+      
+  }
+    .cars-section2{
+    padding-top: 50px;
+    .container{
+    display: flex;
+    flex-direction: column;
+      .cars-section2-top{
+        padding-bottom: 80px;
+        .search-box {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+            select,  input,  button {
+                padding: 10px !important;
+                font-size: 16px;
+                border: none;
+                border-radius: 5px;
+                font-style: italic;
+            }
+            select, .option{
+              color: gray;
+              // font-style: italic;
+            }
+            option{
+            color: black;
+          //   &:focus , &:checked, &:hover {
+          //     background-color: blue !important;
+          //     color: white !important;
+          //  }
+            }
+             button {
+                background: red;
+                cursor: pointer;
+                font-weight: bold;
+            }
+        }
+          
+         }
+            .row{
+              gap: 20px;
+              justify-content: center;
+                .card{
+                    overflow: hidden;
+                    padding: 0;
+                    width: 256px;
+                    background-color: rgb(34, 33, 33);
+                    .card-img {
+                    object-fit: cover;
+                    position: relative;
+                    overflow: hidden;
+                    &:hover .car-img {
+                        transform: scale(1.1);
+                        z-index: 2;
+                    }
+                    .car-img {
+                        transition: transform 0.3s ease, z-index 0s;
+                        z-index: 1;
+                        height: 250px;
+                        width: 100%;
+                    
+                       
+                        }
+                        .cars-years {
+                            position: absolute;
+                          top: 10px;
+                          left: 10px;
+                          background-color: rgba(147, 142, 142, 0.5);
+                          color: black;
+                          padding: 5px 10px;
+                          border-radius: 55px;
+                        }
+                        
+                        #heart {
+                          position: absolute;
+                          top: 10px;
+                          right: 10px;
+            
+                        }
+                        
+                }
+                .card-body{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                  .card-title{
+                        a{
+                            color: white;
+                            font-size: 20px;
+                        }
+                  }
+                   .card-cars-about{
+                          .col-3 {
+                            display: flex;
+                            width: auto;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 10px;
+                            background-color: rgba(147, 142, 142, 0.5);
+                            color: white;
+                            padding: 5px 10px;
+                            border-radius: 55px;
+                            margin-right: 10px;
+                            img {
+                              width: 20px; /* Şəklin ölçüsünü burada tənzimləyə bilərsiniz */
+                              height: auto;
+                             
+                            //   margin-right: 5px; 
+                            }
+                             span {
+                              font-size: 14px; 
+                              color: black;/* Span yazısının ölçüsünü də burada tənzimləyə bilərsiniz */
+                            }
+                        }
+                    }
+                    .card-cars-price{
+                        padding-top: 5px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        p{
+                            color: white;
+                                span{
+                                    font-size: 25px;
+                                }
+                        }
+                         
+                      }
+                }
+             }
+       }
+       .pagination {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+       align-items: center;
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            &:disabled {
+                background-color: grey;
+            }
+        }
+        #pageNumber{
+          color: white;
+          font-size: 30px;
+          padding: 0 20px;
+        }
+    }
+    }
+}
+@media (max-width: 768px) {
+
+.cars-section1{
+padding-top: 60px;
+  p{
+  padding-top: 25px;
+    font-size: 15px  !important;
+    margin-bottom: 4px !important;
+  
+  } h1{
+    font-size: 20px  !important;
+  }
+}
+.cars-section2{
+  .container{
+    .cars-section2-top{
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      .search-box{
+        flex-direction: column;
+        width: 45%;
+      }  
+    
+    }
+  }
+}
+
+}
+
+}
