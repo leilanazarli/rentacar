@@ -237,4 +237,67 @@ getCard()
     
     fetchCards();
     
+    let carResult=document.querySelector(".booking-result")
+    let bookNow=document.querySelector(".book-now")
+    let name=document.querySelector("#name")
+    let mobile=document.querySelector("#mobile")
+    let email=document.querySelector("#email")
+    let takeDate=document.querySelector("#takeDate")
+    let pickuphour=document.querySelector("#pickuphour")
+    let returnDate=document.querySelector("#returnDate")
+    let returnhour=document.querySelector("#returnhour")
+    let booking_details=document.querySelector("#booking-details")
+    let booking_location=document.querySelector("#booking-location")
+    let dropoff_location=document.querySelector("#dropoff-location")
     
+    
+    // let carsData = [];
+    // axios.get('http://localhost:8000/cars')
+    //     .then(response => {
+    //         carsData = response.data;
+    //         const carSelect = document.getElementById("carSelect");
+    
+    //         carsData.forEach(car => {
+    //             const option = document.createElement("option");
+    //             option.value = car.id;
+    //             option.textContent = `${car.ad} - ${car.qiymet} AZN/day`;
+    //             carSelect.appendChild(option);
+    //         });
+    //     })
+    //     .catch(error => console.error("Error fetching car data:", error));
+    
+    // function calculatePrice() {
+    //     const carId = parseInt(document.getElementById("carSelect").value);
+    //     const takeDate = new Date(document.getElementById("takeDate").value);
+    //     const returnDate = new Date(document.getElementById("returnDate").value);
+    //     const dropoffLocation = document.getElementById("dropoffLocation").value;
+    
+    //     if (isNaN(takeDate) || isNaN(returnDate) || returnDate <= takeDate) {
+    //         alert("Please enter valid pick-up and return dates.");
+    //         return;
+    //     }
+    
+    //     // Seçilmiş maşını tapmaq
+    //     const selectedCar = carsData.find(car => car.id === carId);
+    //     if (!selectedCar) {
+    //         alert("Please select a car.");
+    //         return;
+    //     }
+    
+    //     const days = Math.ceil((returnDate - takeDate) / (1000 * 60 * 60 * 24)); // Gün sayını hesablayırıq
+    //     let totalPrice = 0;
+    
+    //     if (days >= 30) {
+    //         totalPrice = selectedCar.qiymetAy; // 1 ay və daha çox olduqda
+    //     } else if (days >= 7) {
+    //         totalPrice = selectedCar.qiymetHefte; // 1 həftə və daha çox olduqda
+    //     } else {
+    //         totalPrice = days * selectedCar.qiymet; // Günlük hesablama
+    //     }
+    
+    //     if (dropoffLocation === "airport") {
+    //         totalPrice += 10; // Aeroport üçün əlavə +10 AZN
+    //     }
+    
+    //     document.querySelector(".booking-result").innerText = `Total Price: ${totalPrice} AZN`;
+    // }

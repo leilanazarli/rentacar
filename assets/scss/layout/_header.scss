@@ -76,4 +76,92 @@
 
                 }
        }
+       
+       
+       
+       /* Burger Menü */
+       .burger-menu {
+           display: none;
+           flex-direction: column;
+           cursor: pointer;
+           i{
+               // width: 30px;
+               // height: 3px;
+               // background-color: white;
+               margin: 5px 0;
+               transition: 0.4s;
+               z-index: 10000;
+               color: white;
+               font-size: 25px;
+           }
+       }
+        /* RESPONSIVE DESIGN */
+    }
+    
+            /* Mobil Menyu */
+            .mobile-menu {
+                position: fixed;
+                top: 0;
+                right: -250px;
+                width: 250px;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 20px;
+                transition: 0.4s;
+                z-index: 1050;
+                &.active {
+                    right: 0;
+                }
+                 ul {
+                    list-style: none;
+                    padding: 0;
+                    margin-top: 50px;
+                    li {
+                        margin-bottom: 20px;
+                         a {
+                            color: white;
+                            text-decoration: none;
+                            font-size: 18px;
+                        }
+                    }
+                }
+                /* Close düyməsi */
+                .close-btn {
+                    position: absolute;
+                    top: 10px;
+                    right: 20px;
+                    color: white;
+                    font-size: 30px;
+                    cursor: pointer;
+                }
+            }
+    
+    
+    
+            
+    
+    @media (max-width: 768px) {
+         .logos{
+            display: none;
+           
+        }
+        .header-top-right{
+            a{
+            font-size: 10px;
+            }
+        }
+        .logo{
+        display: flex !important;
+            font-size: 25px  !important;
+        }
+        .header-bottom-left{
+        display: none;
+        }
+        .burger-menu {
+            display: flex !important;
+        }
+
+        .header-bottom ul {
+            display: none; /* Normal menyu gizlənir */
+        }
     }

@@ -2,9 +2,9 @@ let header_top_right= document.querySelector(".header-top-right")
 let header_top= document.querySelector(".header-top")
 let header_bottom=document.querySelector(".header-bottom")
 let header=document.querySelector("header")
-let logo=document.querySelector(".logos")
+let logo=document.querySelector(".logo")
 function scrollFunction(){
-    console.log("helo");
+    // console.log("helo");
     if(window.scrollY>100){
         console.log(window.scrollY);
         header_top_right.style.display="none"
@@ -24,4 +24,9 @@ function scrollFunction(){
 
 window.onscroll = function () { scrollFunction() };
 
+
+function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("active");
+}
   

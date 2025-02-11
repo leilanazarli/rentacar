@@ -1,7 +1,5 @@
 .cars{
 background-color: rgb(11, 19, 21);
- 
-  
   .cars-section1 {
       position: relative;
       width: 100%;
@@ -30,9 +28,6 @@ background-color: rgb(11, 19, 21);
       }
       
   }
-  
- 
-  
     .cars-section2{
     padding-top: 50px;
     .container{
@@ -188,4 +183,34 @@ background-color: rgb(11, 19, 21);
     }
     }
 }
+@media (max-width: 768px) {
+
+.cars-section1{
+padding-top: 60px;
+  p{
+  padding-top: 25px;
+    font-size: 15px  !important;
+    margin-bottom: 4px !important;
+  
+  } h1{
+    font-size: 20px  !important;
+  }
+}
+.cars-section2{
+  .container{
+    .cars-section2-top{
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      .search-box{
+        flex-direction: column;
+        width: 45%;
+      }  
+    
+    }
+  }
+}
+
+}
+
 }

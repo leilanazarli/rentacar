@@ -17,8 +17,7 @@
       <header>
         <div class="header-top">
             <div class="container">
-                <div class="header-top-left logo">
-                <!-- <img src="./assets/img/logo.jpeg" alt="logo"> -->
+                <div class="header-top-left logos">
                 <span>Mamedov Rent A Car</span>
                 </div>
                 <div class="header-top-right">
@@ -31,25 +30,40 @@
         </div>
         <div class="header-bottom">
          <div class="container">
-          <div class=" logos" style="font-size: 30px; color: white;display: none;">
-            <!-- <img src="./assets/img/logo.jpeg" alt="logo"> -->
-            <span>Mamedov Rent A Car</span>
+          <div class=" logo" style="font-size: 30px; color: white;display: none;">
+            Mamedov Rent A Car
             </div>
+            
              <div class="header-bottom-left">
                <nav>
                 <ul>
                     <li><a href="./index.html" >əsas səhifə</a></li>
-                    <li><a href="./cars.html">Maşınlar</a></li>
+                    <li><a href="./cars.html"   >Maşınlar</a></li>
                     <li><a href="./favorites.html" style="color: red;">Favorilər</a></li>
                     <li><a href="./service.html">Xidmətlər</a></li>
                     <li><a href="./aboutus.html">Haqqımızda</a></li>
-                    <li ><a href="./contact.html" >əlaqə</a></li>
+                    <li><a href="./contact.html" >əlaqə</a></li>
+                  
                 </ul>
                </nav>
              </div>
-         </div>
+             <div class="burger-menu" onclick="toggleMenu()">
+              <i class="fa-solid fa-bars"></i>
+            </div>
         </div>
     </header>
+    <!-- Mobil Menyu -->
+<div class="mobile-menu" id="mobileMenu">
+<span class="close-btn" onclick="toggleMenu()">✖</span>
+<ul>
+  <li><a href="./index.html" >Əsas səhifə</a></li>
+  <li><a href="./cars.html" >Maşınlar</a></li>
+  <li><a href="./favorites.html"   style="color: red;">Favorilər</a></li>
+  <li><a href="./service.html">Xidmətlər</a></li>
+  <li><a href="./aboutus.html">Haqqımızda</a></li>
+  <li><a href="./contact.html">Əlaqə</a></li>
+</ul>
+</div>
         <section class="favorites-section1">
             <div class="container">
             <div class="favorites-text">
@@ -62,28 +76,28 @@
             </div>
         </section>
         <hr>
-        <footer >
-         <div class="container">
-            <div class="row">
-              <div class="footer-left col-4">
-                <span>Mamedov Rent A Car</span>
-                <a href="tel:+994552965450"><h1 style="font-weight: 800;">Çağrı Mərkəzi :(+994) 055 296 54 50</h1></a>
-              </div>
-              <div class="footer-com col-4">
-                <h1>Menyu</h1>
-                <a href="./aboutus.html">Haqqımızda</a>
-                <a href="./service.html">Xidmətlər</a>
-                <a href="./contact.html">Əlaqə</a>
-              </div>
-              <div class="footer-right col-4">
-                <h1>Bizi izləyin</h1>
-                <a href="https://www.instagram.com/gence_rentacar/profilecard/?igsh=OW9wZ2Z0NXR1em90 " target="_blank"><i class="fa-brands fa-instagram"></i>İnstagram</a>
-                <a href="https://www.tiktok.com/@gence_rentacar_?_t=ZS-8sjfUxkzvVJ&_r=1" target="_blank"><i class="fa-brands fa-tiktok"></i>Tiktok</a>
-                <a href=" https://wa.me/994552965450" target="_blank"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
-              </div>
-            </div>
-         </div>
-        </footer>
+        <footer>
+          <div class="container">
+             <div class="row">
+               <div class="footer-left col-lg-4 col-md-12">
+                 <span>Mamedov Rent A Car</span>
+                 <a href="tel:+994552965450"><h1 style="font-weight: 800;">Çağrı Mərkəzi :(+994) 055 296 54 50</h1></a>
+               </div>
+               <div class="footer-com col-lg-4 col-md-12">
+                 <h1>Menyu</h1>
+                 <a href="./aboutus.html">Haqqımızda</a>
+                 <a href="./service.html">Xidmətlər</a>
+                 <a href="./contact.html">Əlaqə</a>
+               </div>
+               <div class="footer-right col-lg-4 col-md-12">
+                 <h1>Bizi izləyin</h1>
+                 <a href="https://www.instagram.com/gence_rentacar/profilecard/?igsh=OW9wZ2Z0NXR1em90 " target="_blank"><i class="fa-brands fa-instagram"></i>İnstagram</a>
+                 <a href="https://www.tiktok.com/@gence_rentacar_?_t=ZS-8sjfUxkzvVJ&_r=1" target="_blank"><i class="fa-brands fa-tiktok"></i>Tiktok</a>
+                 <a href=" https://wa.me/994552965450" target="_blank"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
+               </div>
+             </div>
+          </div>
+         </footer>
         <hr>
       <div class="container" >
         <p style="color: white;text-align: center; font-size: 18px;">Created & Designed by Leila Nazarli</p>

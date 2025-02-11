@@ -20,7 +20,7 @@
         <header>
             <div class="header-top">
                 <div class="container">
-                    <div class="header-top-left logo">
+                    <div class="header-top-left logos">
                     <span>Mamedov Rent A Car</span>
                     </div>
                     <div class="header-top-right">
@@ -33,9 +33,10 @@
             </div>
             <div class="header-bottom">
              <div class="container">
-              <div class=" logos" style="font-size: 30px; color: white;display: none;">
-                <span>Mamedov Rent A Car</span>
+              <div class=" logo" style="font-size: 30px; color: white;display: none;">
+                Mamedov Rent A Car
                 </div>
+                
                  <div class="header-bottom-left">
                    <nav>
                     <ul>
@@ -49,9 +50,24 @@
                     </ul>
                    </nav>
                  </div>
-             </div>
+                 <div class="burger-menu" onclick="toggleMenu()">
+                  <i class="fa-solid fa-bars"></i>
+                </div>
             </div>
         </header>
+        <!-- Mobil Menyu -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="close-btn" onclick="toggleMenu()">✖</span>
+  <ul>
+      <li><a href="./index.html" style="color: red;">Əsas səhifə</a></li>
+      <li><a href="./cars.html">Maşınlar</a></li>
+      <li><a href="./favorites.html">Favorilər</a></li>
+      <li><a href="./service.html">Xidmətlər</a></li>
+      <li><a href="./aboutus.html">Haqqımızda</a></li>
+      <li><a href="./contact.html">Əlaqə</a></li>
+  </ul>
+</div>
+
         <section class="home-section1">
               <div id="carouselExampleDark" class="carousel  slide" data-bs-ride="carousel" data-aos="zoom-in">
                 <!-- <div class="carousel-indicators">
@@ -62,7 +78,7 @@
                 <div class="carousel-inner">
                   <div class="carousel-item active" data-bs-interval="10000">
                     <img src="./assets/img/home img 1.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption  d-md-block">
                       <div class="container">
                         <h5>Lüks Avtomobil icarəyə götürmək istəyirsən? </h5>
                         <p>O zaman doğru məkandasan.</p>
@@ -71,7 +87,7 @@
                   </div>
                   <div class="carousel-item" data-bs-interval="2000" >
                     <img src="./assets/img/home img 2.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption  d-md-block">
                       <div class="container ">
                         <h5>Lüks Avtomobil icarəyə götürmək istəyirsən? </h5>
                         <p>O zaman doğru məkandasan.</p>
@@ -80,7 +96,7 @@
                   </div>
                   <div class="carousel-item">
                     <img src="./assets/img/h1-rev-img-3b.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption  d-md-block">
                       <div class="container">
                         <h5>Lüks Avtomobil icarəyə götürmək istəyirsən? </h5>
                         <p>O zaman doğru məkandasan.</p>
@@ -194,10 +210,10 @@
           <h3>Popular Arenda Maşınları</h3>
           <a href="./cars.html"> <span> / </span>  Bütün maşınlara keçid et </a>
         </div>
-        <div class="home-section2-card" >
-          <div class="row p-5 m-0">
-            <div class="owl-slider">
-             <div id="carousel" class="owl-carousel row g-5 ">
+        <div class="home-section2-card " >
+          <div class="row  g-3 m-0" >
+            <div class="owl-slider "  >
+             <div id="carousel" class="owl-carousel row g-5 " >
             
              </div> 
             </div> 

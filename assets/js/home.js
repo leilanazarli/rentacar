@@ -116,7 +116,7 @@ async function getData() {
   $("#carousel").owlCarousel({
     autoplay: true,
     rewind: true, 
-    margin: 10,
+    margin: 20,
     animateOut: "fadeOut",
     animateIn: "fadeIn",
     responsiveClass: true,

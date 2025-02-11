@@ -4,6 +4,7 @@
     .home-section1{
         // padding: 0 60px ;
         .carousel{
+        
             img{
                 height: 720px;
             }
@@ -388,4 +389,118 @@ p {
             }
         }
     }
+    
+    @media (max-width: 768px) {
+    
+    .home-section1{
+      .carousel{
+      img{
+        width:500px;
+        height: 500px;
+      }
+        .carousel-inner{
+          h5{
+            font-size: 20px;
+          }
+          p{
+            font-size: 15px;
+          }
+        }
+      }
+    }
+    .home-section3{
+      .container{
+        .section3-title{
+          h1{
+          font-size: 25px;
+          }
+          span{
+          font-size: 20px;
+          }
+        }
+       .card-title{
+        h1{
+          font-size: 25px  !important;
+        }
+        h2{
+          font-size: 23px !important;
+        }
+       }
+       .row{
+        gap: 30px  !important;
+       }
+      }
+    }
+    .home-section2{
+      .home-section2-text{
+         h3{
+          font-size: 25px  !important;
+         }
+         a{
+          font-size: 16px  !important;
+         }
+      }
+      .home-section2-card{
+        .row{
+          margin: 0;
+          .owl-slider{
+          // display: flex !important;
+        // justify-content: center !important;
+        // align-items: center !important;
+        padding-left:0  !important ;
+        // margin-left:0  !important ;
+        // left: -20px;
+           .owl-carousel{
+          //  padding-left:0  !important ;
+          //  display: flex;
+          //  align-items: center; 
+          //  justify-content: center;
+            .item {
+              height: auto;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              text-align: center;
+              margin: auto;
+              left: 0;
+                  // width: 99%; /* Hər card tam eni tutsun */
+          }
+           
+           
+        //      overflow: hidden !important; /* Kənara çıxan elementləri gizlət */
+        //     .item {
+        //     max-width: 300px; /* Maksimum eni təyin et */
+        //     margin: auto; /* Ortaya düzləşdir */
+        // }
+        
+        
+      }
+    }
+  }
+}
+    }
+    .home-section4{
+      .content{
+        p{
+        font-size: 30px !important;
+        }
+        h2{
+        font-size: 25px !important;
+        }
+      }
+    }
+    .home-section5{
+      .container{
+        .section5-bottom{
+          .row{
+            gap: 30px;
+           .col-lg-4{
+            flex-direction: column !important;
+            text-align: center;
+           }
+          }
+        }
+      }
+    }
+  }
 }

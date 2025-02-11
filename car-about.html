@@ -17,40 +17,56 @@
 </head>
 <body>
     <div class="car-about">
-      <header >
-        <div class="header-top">
-            <div class="container">
-                <div class="header-top-left logo">
-                <span>Mamedov Rent A Car</span>
-                </div>
-                <div class="header-top-right">
-                    <a href="tel:+994 055 296 54 50"><i class="fa-solid fa-phone"></i><span >+994 055 296 54 50</span></a>
-                    <span class="line">|</span>
-                    <a href="https://maps.app.goo.gl/BiraJu8YX1WmkHM56"><i class="fa-solid fa-location-dot"></i><span>Gəncə şəhər Fərhad Əliyev küçəsi </span></a>
-                    <a href="./login.html"><i class="fa-solid fa-user"></i></a>
+        <header>
+            <div class="header-top">
+                <div class="container">
+                    <div class="header-top-left logos">
+                    <span>Mamedov Rent A Car</span>
+                    </div>
+                    <div class="header-top-right">
+                        <a href="tel:+994 055 296 54 50"><i class="fa-solid fa-phone"></i><span >+994 055 296 54 50</span></a>
+                        <span class="line">|</span>
+                        <a href="https://maps.app.goo.gl/BiraJu8YX1WmkHM56"><i class="fa-solid fa-location-dot"></i><span>Gəncə şəhər Fərhad Əliyev küçəsi </span></a>
+                        <a href="./login.html"><i class="fa-solid fa-user"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="header-bottom">
-         <div class="container">
-          <div class=" logos" style="font-size: 30px; color: white;display: none;">
-            <span>Mamedov Rent A Car</span>
+            <div class="header-bottom">
+             <div class="container">
+              <div class=" logo" style="font-size: 30px; color: white;display: none;">
+                Mamedov Rent A Car
+                </div>
+                
+                 <div class="header-bottom-left">
+                   <nav>
+                    <ul>
+                        <li><a href="./index.html" >əsas səhifə</a></li>
+                        <li><a href="./cars.html">Maşınlar</a></li>
+                        <li><a href="./favorites.html">Favorilər</a></li>
+                        <li><a href="./service.html">Xidmətlər</a></li>
+                        <li><a href="./aboutus.html" style="color: red;">Haqqımızda</a></li>
+                        <li><a href="./contact.html">əlaqə</a></li>
+                      
+                    </ul>
+                   </nav>
+                 </div>
+                 <div class="burger-menu" onclick="toggleMenu()">
+                  <i class="fa-solid fa-bars"></i>
+                </div>
             </div>
-             <div class="header-bottom-left">
-               <nav>
-                <ul>
-                    <li><a href="./index.html" >əsas səhifə</a></li>
-                    <li><a href="./cars.html">Maşınlar</a></li>
-                    <li><a href="./favorites.html" >Favorilər</a></li>
-                    <li><a href="./service.html">Xidmətlər</a></li>
-                    <li><a href="./aboutus.html">Haqqımızda</a></li>
-                    <li ><a href="./contact.html" >əlaqə</a></li>
-                </ul>
-               </nav>
-             </div>
-         </div>
-        </div>
-    </header>
+        </header>
+        <!-- Mobil Menyu -->
+    <div class="mobile-menu" id="mobileMenu">
+    <span class="close-btn" onclick="toggleMenu()">✖</span>
+    <ul>
+      <li><a href="./index.html" >Əsas səhifə</a></li>
+      <li><a href="./cars.html"  style="color: red;">Maşınlar</a></li>
+      <li><a href="./favorites.html">Favorilər</a></li>
+      <li><a href="./service.html">Xidmətlər</a></li>
+      <li><a href="./aboutus.html">Haqqımızda</a></li>
+      <li><a href="./contact.html">Əlaqə</a></li>
+    </ul>
+    </div>
         <section class="car-about-section1" >
             <div class="car-about-video">
                 <!-- <iframe width="560" height="315" class="car-video" src="https://www.youtube.com/embed/4tHkkFwCcLs" 
@@ -159,43 +175,43 @@
                                 </div>
                             
                                 <div class="col-md-6">
-                                    <label for="mobile" class="form-label">Phone*</label>
+                                    <label for="mobile" class="form-label">Mobile*</label>
                                     <input type="tel" class="form-control" id="mobile" placeholder="Your Phone" required>
                                 </div>
                             </div>
                 
                             <div class="mb-3">
-                                <label for="mobile" class="form-label">Mobile*</label>
-                                <input type="tel" class="form-control" id="mobile" placeholder="Your Mobile" required>
+                                <label for="email" class="form-label">Email*</label>
+                                <input type="email" class="form-control" id="email" placeholder="Your Email" required>
                             </div>
                 
                             <!-- Booking Date -->
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="takeDate" class="form-label">Pick-Up Date</label>
-                                    <input type="date" class="form-control" id="takeDate">
+                                    <input type="date" class="form-control" id="takeDate" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="pickuphour" class="form-label">Pick-Up Hour</label>
-                                    <input type="number" class="form-control" id="pickuphour">
+                                    <input type="time" class="form-control" id="pickuphour" required>
                                 </div>
                             </div>
                 
                             <div class="row mt-3">
                                 <div class="col-md-6">
                                     <label for="returnDate" class="form-label">Return Date</label>
-                                    <input type="date" class="form-control" id="returnDate">
+                                    <input type="date" class="form-control" id="returnDate" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="returnhour" class="form-label">Return Hour</label>
-                                    <input type="number" class="form-control" id="returnhour">
+                                    <input type="time" class="form-control" id="returnhour" required>
                                 </div>
                             </div>
                 
                             <!-- Booking Details -->
                             <div class="mb-3 mt-3">
                                 <label for="booking-details" class="form-label">Booking Details</label>
-                                <select class="form-select" id="booking-details">
+                                <select class="form-select" id="booking-details" required>
                                     <option value="">-</option>
                                     <option value="oturacaq">Uşaq oturacağı</option>
                                     <option value="driver">Sürücü</option>
@@ -206,7 +222,7 @@
                             <div class="row mt-3">
                                 <div class="col-md-6">
                                     <label for="booking-location" class="form-label">Pick-Up Location</label>
-                                    <select class="form-select" id="booking-location">
+                                    <select class="form-select" id="booking-location" required>
                                         <option value="">-</option>
                                         <option value="offices">Main offices</option>
                                         <option value="airport">Airport (+10 AZN)</option>
@@ -215,28 +231,25 @@
                             
                                 <div class="col-md-6">
                                     <label for="dropoff-location" class="form-label">Drop-Off Location</label>
-                                    <select class="form-select" id="dropoff-location">
+                                    <select class="form-select" id="dropoff-location" required>
                                         <option value="">-</option>
                                         <option value="offices">Main offices</option>
                                         <option value="airport">Airport (+10 AZN)</option>
                                     </select>
                                 </div>
                             </div>
-                
                             <!-- Booking Price -->
                             <div class="mb-3">
                                 <label class="form-label">Booking Price</label>
                                 <p class="booking-result border p-2 rounded bg-light">Total Price: - AZN</p>
                             </div>
-                
                             <!-- Message -->
                             <div class="mb-3">
                                 <label for="message" class="form-label">Message</label>
                                 <textarea class="form-control" id="message" rows="3" placeholder="Your message..."></textarea>
                             </div>
-                
                             <!-- Submit Button -->
-                            <button type="submit" class="btn btn-primary w-100">Book Now</button>
+                            <button type="submit" class="btn btn-primary w-100 book-now" >Book Now</button>
                         </form>
                     </div>
                 </div>
@@ -329,28 +342,28 @@
             </div>
         </section>
         <hr>
-        <footer >
-         <div class="container">
-            <div class="row">
-              <div class="footer-left col-4">
-                <span>Mamedov Rent A Car</span>
-                <a href="tel:+994552965450"><h1 style="font-weight: 800;">Çağrı Mərkəzi :(+994) 055 296 54 50</h1></a>
-              </div>
-              <div class="footer-com col-4">
-                <h1>Menyu</h1>
-                <a href="./aboutus.html">Haqqımızda</a>
-                <a href="./service.html">Xidmətlər</a>
-                <a href="./contact.html">Əlaqə</a>
-              </div>
-              <div class="footer-right col-4">
-                <h1>Bizi izləyin</h1>
-                <a href="https://www.instagram.com/gence_rentacar/profilecard/?igsh=OW9wZ2Z0NXR1em90 " target="_blank"><i class="fa-brands fa-instagram"></i>İnstagram</a>
-                <a href="https://www.tiktok.com/@gence_rentacar_?_t=ZS-8sjfUxkzvVJ&_r=1" target="_blank"><i class="fa-brands fa-tiktok"></i>Tiktok</a>
-                <a href=" https://wa.me/994552965450" target="_blank"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
-              </div>
+        <footer>
+            <div class="container">
+               <div class="row">
+                 <div class="footer-left col-lg-4 col-md-12">
+                   <span>Mamedov Rent A Car</span>
+                   <a href="tel:+994552965450"><h1 style="font-weight: 800;">Çağrı Mərkəzi :(+994) 055 296 54 50</h1></a>
+                 </div>
+                 <div class="footer-com col-lg-4 col-md-12">
+                   <h1>Menyu</h1>
+                   <a href="./aboutus.html">Haqqımızda</a>
+                   <a href="./service.html">Xidmətlər</a>
+                   <a href="./contact.html">Əlaqə</a>
+                 </div>
+                 <div class="footer-right col-lg-4 col-md-12">
+                   <h1>Bizi izləyin</h1>
+                   <a href="https://www.instagram.com/gence_rentacar/profilecard/?igsh=OW9wZ2Z0NXR1em90 " target="_blank"><i class="fa-brands fa-instagram"></i>İnstagram</a>
+                   <a href="https://www.tiktok.com/@gence_rentacar_?_t=ZS-8sjfUxkzvVJ&_r=1" target="_blank"><i class="fa-brands fa-tiktok"></i>Tiktok</a>
+                   <a href=" https://wa.me/994552965450" target="_blank"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
+                 </div>
+               </div>
             </div>
-         </div>
-        </footer>
+           </footer>
         <hr>
       <div class="container">
         <p style="color: white;text-align: center; font-size: 18px;">Created & Designed by Leila Nazarli</p>

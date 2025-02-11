@@ -174,11 +174,22 @@ footer .container .row .footer-com h1, footer .container .row .footer-right h1 {
 footer .container .row .fa-brands {
   padding-right: 10px;
 }
+@media (max-width: 768px) {
+  footer .container .row {
+    gap: 30px;
+  }
+  footer .container .row .col-lg-4 {
+    justify-content: center !important;
+    align-items: center;
+  }
+}
 
 header {
   width: 100%;
   position: fixed;
   z-index: 2;
+  /* Burger Menü */
+  /* RESPONSIVE DESIGN */
 }
 header .header-top {
   padding: 20px 0;
@@ -239,7 +250,78 @@ header .header-bottom .container .header-bottom-left nav ul li a {
 header .header-bottom .container .header-bottom-left nav ul li a:hover {
   color: red;
 }
+header .burger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+header .burger-menu i {
+  margin: 5px 0;
+  transition: 0.4s;
+  z-index: 10000;
+  color: white;
+  font-size: 25px;
+}
 
+/* Mobil Menyu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 20px;
+  transition: 0.4s;
+  z-index: 1050;
+  /* Close düyməsi */
+}
+.mobile-menu.active {
+  right: 0;
+}
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 50px;
+}
+.mobile-menu ul li {
+  margin-bottom: 20px;
+}
+.mobile-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+.mobile-menu .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .logos {
+    display: none;
+  }
+  .header-top-right a {
+    font-size: 10px;
+  }
+  .logo {
+    display: flex !important;
+    font-size: 25px !important;
+  }
+  .header-bottom-left {
+    display: none;
+  }
+  .burger-menu {
+    display: flex !important;
+  }
+  .header-bottom ul {
+    display: none; /* Normal menyu gizlənir */
+  }
+}
 .aboutus {
   background-color: rgb(11, 19, 21);
   height: -moz-max-content;
@@ -733,6 +815,67 @@ header .header-bottom .container .header-bottom-left nav ul li a:hover {
   padding-top: 20px;
   color: white;
 }
+@media (max-width: 768px) {
+  .home .home-section1 .carousel img {
+    width: 500px;
+    height: 500px;
+  }
+  .home .home-section1 .carousel .carousel-inner h5 {
+    font-size: 20px;
+  }
+  .home .home-section1 .carousel .carousel-inner p {
+    font-size: 15px;
+  }
+  .home .home-section3 .container .section3-title h1 {
+    font-size: 25px;
+  }
+  .home .home-section3 .container .section3-title span {
+    font-size: 20px;
+  }
+  .home .home-section3 .container .card-title h1 {
+    font-size: 25px !important;
+  }
+  .home .home-section3 .container .card-title h2 {
+    font-size: 23px !important;
+  }
+  .home .home-section3 .container .row {
+    gap: 30px !important;
+  }
+  .home .home-section2 .home-section2-text h3 {
+    font-size: 25px !important;
+  }
+  .home .home-section2 .home-section2-text a {
+    font-size: 16px !important;
+  }
+  .home .home-section2 .home-section2-card .row {
+    margin: 0;
+  }
+  .home .home-section2 .home-section2-card .row .owl-slider {
+    padding-left: 0 !important;
+  }
+  .home .home-section2 .home-section2-card .row .owl-slider .owl-carousel .item {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    left: 0;
+  }
+  .home .home-section4 .content p {
+    font-size: 30px !important;
+  }
+  .home .home-section4 .content h2 {
+    font-size: 25px !important;
+  }
+  .home .home-section5 .container .section5-bottom .row {
+    gap: 30px;
+  }
+  .home .home-section5 .container .section5-bottom .row .col-lg-4 {
+    flex-direction: column !important;
+    text-align: center;
+  }
+}
 
 .favorites {
   background-color: rgb(11, 19, 21);
@@ -1008,6 +1151,28 @@ header .header-bottom .container .header-bottom-left nav ul li a:hover {
   color: white;
   font-size: 30px;
   padding: 0 20px;
+}
+@media (max-width: 768px) {
+  .cars .cars-section1 {
+    padding-top: 60px;
+  }
+  .cars .cars-section1 p {
+    padding-top: 25px;
+    font-size: 15px !important;
+    margin-bottom: 4px !important;
+  }
+  .cars .cars-section1 h1 {
+    font-size: 20px !important;
+  }
+  .cars .cars-section2 .container .cars-section2-top {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .cars .cars-section2 .container .cars-section2-top .search-box {
+    flex-direction: column;
+    width: 45%;
+  }
 }
 
 .login {
@@ -1396,6 +1561,15 @@ header .header-bottom .container .header-bottom-left nav ul li a:hover {
 .service .service-section4 .container .row .col-lg-4 .card-text a span {
   padding-top: 20px;
   color: white;
+}
+@media (max-width: 768px) {
+  .service .service-section4 .container .row {
+    gap: 30px;
+  }
+  .service .service-section4 .container .row .col-lg-4 {
+    flex-direction: column !important;
+    text-align: center;
+  }
 }
 
 .car-about {
