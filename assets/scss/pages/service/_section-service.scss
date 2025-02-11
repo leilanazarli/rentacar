@@ -105,4 +105,19 @@
         }
     }
 }
+        @media (max-width: 768px) {
+            .service-section4{
+                .container{
+                    .row{
+                      gap: 30px;
+                     .col-lg-4{
+                      flex-direction: column !important;
+                      text-align: center;
+                     }
+                    }
+                }
+              }
+        
+        }
+
 }
