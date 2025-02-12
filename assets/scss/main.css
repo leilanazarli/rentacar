@@ -328,6 +328,7 @@ header .burger-menu i {
   height: max-content;
 }
 .aboutus .aboutus-section1 {
+  position: relative;
   padding-top: 120px;
 }
 .aboutus .aboutus-section1 img {
@@ -404,6 +405,7 @@ header .burger-menu i {
   justify-content: center;
   padding: 20px 0;
   margin: 0;
+  gap: 50px;
 }
 .aboutus .aboutus-section3 .section3-img {
   display: flex;
@@ -420,6 +422,49 @@ header .burger-menu i {
   line-height: 1.3;
   width: 80%;
   font-weight: 100;
+}
+@media (max-width: 768px) {
+  .aboutus header .header-bottom {
+    padding: 10px 0;
+  }
+  .aboutus .aboutus-section1 h1 {
+    font-size: 25px;
+    bottom: 25%;
+  }
+  .aboutus .aboutus-section2 {
+    padding-top: 40px;
+  }
+  .aboutus .aboutus-section2 h2 {
+    font-size: 28px !important;
+  }
+  .aboutus .aboutus-section2 .question {
+    font-size: 20px !important;
+  }
+  .aboutus .aboutus-section3 {
+    flex-direction: column;
+  }
+  .aboutus .aboutus-section3 .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  .aboutus .aboutus-section3 .left img {
+    width: 100%;
+  }
+  .aboutus .aboutus-section3 .left .img1 {
+    width: auto;
+  }
+  .aboutus .aboutus-section3 .left .img2 {
+    width: auto;
+  }
+  .aboutus .aboutus-section3 .right {
+    text-align: center;
+    width: 100% !important;
+  }
+  .aboutus .aboutus-section3 .right p {
+    width: 100% !important;
+  }
 }
 
 .contact {
@@ -466,7 +511,7 @@ header .burger-menu i {
   width: 450px;
   background-color: white;
 }
-.contact .contact-section4 {
+.contact .contact-section2 {
   background-color: #0b1315;
   color: white;
   display: flex;
@@ -475,37 +520,82 @@ header .burger-menu i {
   padding: 50px 0;
   margin: 0;
 }
-.contact .contact-section4 .left {
+.contact .contact-section2 .left {
   width: 50%;
   display: flex;
   gap: 20px;
 }
-.contact .contact-section4 .left .img1 {
+.contact .contact-section2 .left .img1 {
   width: 350px;
 }
-.contact .contact-section4 .left .img2 {
+.contact .contact-section2 .left .img2 {
   width: 300px;
 }
-.contact .contact-section4 .right {
+.contact .contact-section2 .right {
   width: 50%;
 }
-.contact .contact-section4 .right h2 {
+.contact .contact-section2 .right h2 {
   font-size: 45px;
   font-weight: 400;
 }
-.contact .contact-section4 .right p {
+.contact .contact-section2 .right p {
   font-size: 30px;
   margin: 10px 0;
   font-style: italic;
   font-weight: 100;
 }
-.contact .contact-section4 .right .btn {
+.contact .contact-section2 .right .btn {
   display: inline-block;
   padding: 10px 20px;
   margin-top: 30px;
   text-decoration: none;
   font-weight: bold;
   border-radius: 5px;
+}
+@media (max-width: 768px) {
+  .contact .contact-section2 {
+    gap: 30px;
+  }
+  .contact .contact-section2 .left {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .contact .contact-section2 .left img {
+    width: 100%;
+  }
+  .contact .contact-section2 .left .img1 {
+    width: auto;
+  }
+  .contact .contact-section2 .left .img2 {
+    width: auto;
+  }
+  .contact .contact-section2 .right {
+    width: 100%;
+  }
+  .contact .contact-section3 {
+    height: 100%;
+  }
+  .contact .contact-section3 .row {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .contact .contact-section3 .row .col-5 {
+    width: 100%;
+  }
+  .contact .contact-section3 .row .col-5 form {
+    width: auto;
+  }
+  .contact .contact-section3 .row .col-5 form textarea {
+    width: 100%;
+  }
+  .contact .contact-section3 .row .col-6 {
+    width: 100%;
+  }
+  .contact .contact-section3 .row .col-6 iframe {
+    width: 100%;
+  }
 }
 
 .home {
@@ -588,7 +678,6 @@ header .burger-menu i {
   -o-object-fit: fill;
      object-fit: fill; /* Şəkil kartın ölçüsünə uyğunlaşdırılır */
   width: 320px; /* Kartın bütün enini əhatə edir */
-  height: 400px; /* Kartın bütün hündürlüyünü əhatə edir */
   border-radius: 0.625rem; /* Kartın yuvarlaq küncləri ilə uyğunlaşdırılır */
   transition: transform 0.3s ease-in; /* Hover effekti üçün keçid */
 }
@@ -1049,13 +1138,13 @@ header .burger-menu i {
   font-weight: bold;
 }
 .cars .cars-section2 .container .row {
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
 }
 .cars .cars-section2 .container .row .card {
   overflow: hidden;
   padding: 0;
-  width: 256px;
+  width: 326px;
   background-color: rgb(34, 33, 33);
 }
 .cars .cars-section2 .container .row .card .card-img {
@@ -1102,12 +1191,12 @@ header .burger-menu i {
   width: auto;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 5px;
   background-color: rgba(147, 142, 142, 0.5);
   color: white;
   padding: 5px 10px;
   border-radius: 55px;
-  margin-right: 10px;
+  margin-right: 6px;
 }
 .cars .cars-section2 .container .row .card .card-body .card-cars-about .col-3 img {
   width: 20px; /* Şəklin ölçüsünü burada tənzimləyə bilərsiniz */
@@ -1465,6 +1554,12 @@ header .burger-menu i {
 .service {
   background-color: rgb(11, 19, 21);
 }
+.service .owl-item.active {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .service .service-section1 .container {
   padding-top: 150px;
   height: 550px;
@@ -1563,12 +1658,36 @@ header .burger-menu i {
   color: white;
 }
 @media (max-width: 768px) {
+  .service .service-section2 {
+    flex-direction: column;
+    gap: 60px;
+  }
+  .service .service-section2 .images {
+    flex-direction: column;
+    width: 100%;
+  }
+  .service .service-section2 .images img {
+    width: 100%;
+  }
+  .service .service-section2 .service-details h2 {
+    padding-bottom: 30px;
+  }
+  .service .hr-service {
+    margin-top: 50px;
+  }
+  .service .service-section3 {
+    padding: 60px 20px 0 20px;
+  }
+  .service .service-section3 .owl-item.active {
+    margin-right: 0 !important;
+  }
   .service .service-section4 .container .row {
     gap: 30px;
   }
   .service .service-section4 .container .row .col-lg-4 {
     flex-direction: column !important;
     text-align: center;
+    padding: 0;
   }
 }
 

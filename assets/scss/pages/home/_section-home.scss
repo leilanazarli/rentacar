@@ -104,7 +104,7 @@ p {
 .card__background {
   object-fit:fill; /* Şəkil kartın ölçüsünə uyğunlaşdırılır */
   width: 320px; /* Kartın bütün enini əhatə edir */
-  height: 400px; /* Kartın bütün hündürlüyünü əhatə edir */
+  // height: 400px; /* Kartın bütün hündürlüyünü əhatə edir */
   border-radius: 0.625rem; /* Kartın yuvarlaq küncləri ilə uyğunlaşdırılır */
   transition: transform 0.3s ease-in; /* Hover effekti üçün keçid */
 }

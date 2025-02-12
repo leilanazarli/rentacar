@@ -111,7 +111,6 @@ async function getData() {
   });
 
 
-
   // **Owl Carousel-i burda işə salırıq, çünki məlumat artıq yüklənib**
   $("#carousel").owlCarousel({
     autoplay: true,

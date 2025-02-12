@@ -1,5 +1,11 @@
 .service{
     background-color: rgb(11, 19, 21);
+    .owl-item.active {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .service-section1{
 
         .container{
@@ -106,6 +112,33 @@
     }
 }
         @media (max-width: 768px) {
+        .service-section2{
+            flex-direction: column;
+            gap: 60px;
+            .images{
+            // display: flex;
+                flex-direction: column;
+                width: 100%;
+                img{
+                    width: 100%;
+                
+                }
+            }
+            .service-details{
+            h2{
+                padding-bottom: 30px;
+            }
+            }
+        }
+        .hr-service{
+            margin-top: 50px;
+        }
+            .service-section3{
+                padding: 60px 20px 0 20px  ;
+                .owl-item.active{
+                margin-right: 0 !important;
+                }
+                }
             .service-section4{
                 .container{
                     .row{
@@ -113,6 +146,7 @@
                      .col-lg-4{
                       flex-direction: column !important;
                       text-align: center;
+                      padding: 0;
                      }
                     }
                 }

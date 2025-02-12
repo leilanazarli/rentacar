@@ -16,6 +16,9 @@
                 loop:true,
                 margin:30,
                 nav:true,
+                autoplay: true, // Avtomatik dəyişsin
+                autoplayTimeout: 3000, // 2 saniyədən bir dəyişsin (2000ms = 2s)
+                autoplayHoverPause: true, // İstifadəçi hover edəndə dayansın
                 responsive:{
                     0:{
                         items:1

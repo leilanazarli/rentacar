@@ -46,7 +46,7 @@ background-color: rgb(11, 19, 21);
             }
         }
     }
-    .contact-section4{
+    .contact-section2{
         
             background-color: #0b1315;
             color: white;
@@ -87,5 +87,53 @@ background-color: rgb(11, 19, 21);
                     border-radius: 5px;
                 }
             }
+    }
+    @media (max-width: 768px) {
+        .contact-section2{
+        gap: 30px;
+            .left{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            img{
+                width: 100%;
+                
+            }
+            .img1{
+                width: auto;
+            }
+            .img2{
+                
+                width: auto;
+            }
+            }
+            .right{
+                width: 100%;
+            }
+        }
+        .contact-section3{
+        height: 100%;
+        .row{
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         .col-5{
+            //  justify-content: right;
+            width: 100%;
+            form{
+                width: auto;
+                textarea{
+                    width: 100%          
+                }
+            }
+         }
+         .col-6{
+             width: 100%;
+            iframe{
+            width: 100%;
+            }
+         }
+        }
+        }
     }
 }

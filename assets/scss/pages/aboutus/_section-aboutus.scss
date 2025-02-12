@@ -2,7 +2,7 @@
 background-color: rgb(11, 19, 21);
 height:max-content;
         .aboutus-section1{
-        
+        position: relative;
         padding-top: 120px ;
             img{
                 width: 100%;
@@ -123,6 +123,7 @@ height:max-content;
         justify-content: center;
         padding: 20px 0;
         margin: 0;
+        gap: 50px;
         .section3-img {
             display: flex;
             gap: 10px;
@@ -147,5 +148,56 @@ height:max-content;
         }
       }
     }
-    
+    @media (max-width: 768px) {
+    header{
+    .header-bottom{
+    padding: 10px 0;
+    }
+    }
+        .aboutus-section1{
+        h1{
+            font-size: 25px;
+            bottom: 25%;
+            
+        }
+        }
+        .aboutus-section2{
+            padding-top: 40px;
+            h2{
+                font-size: 28px !important;
+            
+            }
+            .question{
+                font-size: 20px !important;
+            }
+        }
+        .aboutus-section3{
+                flex-direction: column;
+                .left{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width: 100%;
+                    img{
+                        width: 100%;
+                        
+                    }
+                    .img1{
+                        width: auto;
+                    }
+                    .img2{
+                        
+                        width: auto;
+                    }
+                }  
+                .right{
+                    text-align: center;
+                    width: 100% !important;
+                    p{
+                        width: 100% !important;
+                    
+                    }
+                }
+        }
+    }
 }
