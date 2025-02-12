@@ -2,7 +2,7 @@
     "cars":[
         {
             "id":1,
-            "image":"./assets/img/Lada-4x4-Urban.jpg",
+            "image":"./assets/img/niva.png",
             "img1":"./assets/img/Lada-4x4-Urban.jpg",
             "img2":"./assets/img/Lada-4x4-Urban.jpg",
             "marka":"LADA",
@@ -12,7 +12,7 @@
             "oturacaq":4,
             "qabisayi":2 ,
             "motor":"1.4" ,
-            "video":"hdkQtJEj_88",
+            "video":"FsDHgFblSdo",
             "haqqinda":"Gəncə şəhərində 2014-cü il LADA Niva ilə rahat və sərfəli səyahətə çıxın. Bu avtomobil güclü mühərrik və geniş iç məkanı ilə uzun məsafələr üçün mükəmməl seçimdir. 7/24 xidmətimizlə LADA Niva 2014-ü asanlıqla icarəyə götürün və Gəncə şəhərində komfortlu bir sürüşün zövqünü çıxarın.",
             "qiymet":60 ,
             "qiymetHefte":210 ,
@@ -20,7 +20,7 @@
         },
         {
             "id":2,
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg/400px-2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg",
+            "image": "./assets/img/navara (1).png",
            "img1":"./assets/img/Lada-4x4-Urban.jpg",
             "img2":"./assets/img/Lada-4x4-Urban.jpg",
             "marka":"NISSAN",
@@ -38,7 +38,7 @@
         },
         {
             "id":3,
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg/400px-2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg",
+            "image": "./assets/img/hyundai accent qara.png",
             "img1":"./assets/img/Lada-4x4-Urban.jpg",
             "img2":"./assets/img/Lada-4x4-Urban.jpg",
            "marka":"HYUNDAI",
@@ -58,7 +58,7 @@
             "id":4,
             "img1":"./assets/img/Lada-4x4-Urban.jpg",
             "img2":"./assets/img/Lada-4x4-Urban.jpg",
-           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg/400px-2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg",
+           "image": "./assets/img/pngwing.com (11).png",
             "marka":"KIA",
             "ad": "optima",
             "il": 2016,
@@ -74,7 +74,7 @@
         },
         {
             "id":5,
-            "image": "./assets/img/2016-bmw-x5-xdrive40e.jpg",
+            "image": "./assets/img/bmw x5.png",
             "img1":"./assets/img/Lada-4x4-Urban.jpg",
             "img2":"./assets/img/Lada-4x4-Urban.jpg",
            "marka":"BMW",
@@ -91,7 +91,7 @@
         },
         {
             "id":6,
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg/400px-2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg",
+            "image": "./assets/img/pngwing.com (10).png",
             "img1":"./assets/img/Lada-4x4-Urban.jpg",
             "img2":"./assets/img/Lada-4x4-Urban.jpg",
            "marka":"HYUNDAI",
@@ -108,7 +108,7 @@
         },
         {
             "id":7,
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg/400px-2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg",
+            "image": "./assets/img/prius.png",
            "img1":"./assets/img/Lada-4x4-Urban.jpg",
             "img2":"./assets/img/Lada-4x4-Urban.jpg",
             "marka":"TOYOTA",
@@ -125,7 +125,7 @@
         },
         {
             "id":8,
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg/400px-2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg",
+            "image": "./assets/img/hyundai accent ag.png",
             "img1":"./assets/img/Lada-4x4-Urban.jpg",
             "img2":"./assets/img/Lada-4x4-Urban.jpg",
            "marka":"HYUNDAI",
@@ -142,8 +142,7 @@
         },
         {
             "id":9,
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg/400px-2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg",
-            "img1":"./assets/img/Lada-4x4-Urban.jpg",
+            "image": "./assets/img/hyunda elantra gumus.png",
             "img2":"./assets/img/Lada-4x4-Urban.jpg",
            "marka":"HYUNDAI",
             "ad": "Elantra",
@@ -159,7 +158,7 @@
         },
         {
             "id":10,
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg/400px-2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg",
+            "image": "./assets/img/hyundai sonata.png",
             "img1":"./assets/img/Lada-4x4-Urban.jpg",
             "img2":"./assets/img/Lada-4x4-Urban.jpg",
            "marka":"HYUNDAI",
@@ -176,7 +175,7 @@
         },
         {
             "id":11,
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg/400px-2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg",
+            "image": "./assets/img/malibu.png",
             "img1":"./assets/img/Lada-4x4-Urban.jpg",
             "img2":"./assets/img/Lada-4x4-Urban.jpg",
            "marka":"CHEVROLET",
@@ -193,7 +192,7 @@
         },
         {
             "id":12,
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg/400px-2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg",
+            "image": "./assets/img/hyundai qara santafe.png",
            "img1":"./assets/img/Lada-4x4-Urban.jpg",
             "img2":"./assets/img/Lada-4x4-Urban.jpg",
             "marka":"HYUNDAI",
@@ -210,7 +209,7 @@
         },
         {
             "id":13,
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg/400px-2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg",
+            "image":"./assets/img/hyundai santafe ag.png",
             "img1":"./assets/img/Lada-4x4-Urban.jpg",
             "img2":"./assets/img/Lada-4x4-Urban.jpg",
            "marka":"HYUNDAI",
@@ -227,7 +226,7 @@
         },
         {
             "id":14,
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg/400px-2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg",
+            "image":"./assets/img/sportage.png",
             "img1":"./assets/img/Lada-4x4-Urban.jpg",
             "img2":"./assets/img/Lada-4x4-Urban.jpg",
            "marka":"KIA",
@@ -244,9 +243,9 @@
         },
         {
             "id":15,
-            "img1":"./assets/img/Lada-4x4-Urban.jpg",
+            "image":"./assets/img/ix 35.png",
             "img2":"./assets/img/Lada-4x4-Urban.jpg",
-           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg/400px-2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg",
+           "img1": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg/400px-2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg",
             "marka":"HYUNDAI",
             "ad": "IX 35",
             "il": 2011,
@@ -261,7 +260,7 @@
         },
         {
             "id":16,
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg/400px-2015_Mazda_MX-5_ND_2.0_SKYACTIV-G_160_i-ELOOP_Rubinrot-Metallic_Vorderansicht.jpg",
+            "image": "./assets/img/f10.png",
             "img1":"./assets/img/Lada-4x4-Urban.jpg",
             "img2":"./assets/img/Lada-4x4-Urban.jpg",
            "marka":"BMW",
