@@ -1,23 +1,26 @@
-// const switchers = [...document.querySelectorAll('.switcher')]
+document.addEventListener("DOMContentLoaded", function () {  // Səhifə tam yükləndikdən sonra icra olunur
+    let form = document.querySelector("form"); // Form elementi düzgün seçilir
+    let name = document.querySelector("#exampleInputEmail1");
+    let password = document.querySelector("#exampleInputPassword1");
 
-// switchers.forEach(item => {
-// 	item.addEventListener('click', function() {
-// 		switchers.forEach(item => item.parentElement.classList.remove('is-active'))
-// 		this.parentElement.classList.add('is-active')
-// 	})
-// })
+    if (!form) {  // Əgər form tapılmırsa, xəta verməməsi üçün yoxlama
+        console.error("Form tapılmadı!");
+        return;
+    }
 
-// let Base_url="http://localhost:8000"
-// console.log(Base_url);
+    form.addEventListener("submit", function (e) {
+        e.preventDefault(); // Formun default göndərilməsini bloklayırıq
 
- let email=document.querySelector("#exampleInputEmail1")
- let password=document.querySelector("#exampleInputPassword1")
- let submit=document.querySelector(".form-submit")
- 
- submit.addEventListener("submit" , async function (e) {
-	e.preventDefault()
-	axios.post('https://rentacar-api.onrender.com/host/login', {name:email, password})
-.then(response=>{
-    console.log(response);
-})
- })
+        console.log(name.value, password.value); // Input dəyərlərini konsola yazdırırıq
+
+        axios.post('https://rentacar-api.onrender.com/host/login', {
+            name: name.value,   // Input dəyərlərini göndəririk
+            password: password.value
+        })
+        .then(response => {
+            console.log(response);
+            console.log(response.data);
+        })
+        .catch(error => console.error('Error:', error));
+    });
+});
