@@ -32,6 +32,7 @@ AOS.init({
       
 let econom_btn=document.querySelector("#econom-btn")
 let Base_url="http://localhost:8000/cars"
+
 econom_btn.addEventListener("click" ,async function (event) {
   event.preventDefault()
   try {
