@@ -431,7 +431,7 @@ label[for=nav-footer-toggle] {
 
 
 } */
-:root {
+/* :root {
 	--background: #0b1315;
 	--navbar-width: 256px;
 	--navbar-width-min: 80px;
@@ -780,4 +780,34 @@ label[for=nav-footer-toggle] {
   #nav-footer-content::-webkit-scrollbar-thumb {
 	border-radius: 99px;
 	background-color: #D62929;
-  }
+  } */
+  /* body {
+    display: flex;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+
+.sections {
+    flex-grow: 1;
+    padding: 20px;
+    transition: margin-left 0.3s;
+    width: calc(100% - 250px);
+}
+
+.sections.full-width {
+    width: calc(100% - 60px);
+}
+
+section {
+    display: none;
+    background: #ECF0F1;
+    padding: 20px;
+    border-radius: 10px;
+    height: 800px;
+}
+
+section.active {
+    display: block;
+} */
