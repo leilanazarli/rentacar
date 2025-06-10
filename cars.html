@@ -23,6 +23,8 @@
       href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./assets/scss//main.css" />
+
     <style>
       :root {
         --primary: #d10024;
@@ -416,7 +418,8 @@
         }
       }
     </style>
-    <title>Mamedov Rent A Car - Maşınlar</title>
+
+    <title>Mamedov Rent A Car</title>
   </head>
   <body>
     <div class="cars">
@@ -452,9 +455,7 @@
               <nav>
                 <ul>
                   <li><a href="./index.html">əsas səhifə</a></li>
-                  <li>
-                    <a href="./cars.html" style="color: #ffcc00">Maşınlar</a>
-                  </li>
+                  <li><a href="./cars.html" style="color: red">Maşınlar</a></li>
                   <li><a href="./favorites.html">Favorilər</a></li>
                   <li><a href="./service.html">Xidmətlər</a></li>
                   <li><a href="./aboutus.html">Haqqımızda</a></li>
@@ -468,13 +469,12 @@
           </div>
         </div>
       </header>
-
-      <!-- Mobile Menu -->
+      <!-- Mobil Menyu -->
       <div class="mobile-menu" id="mobileMenu">
         <span class="close-btn" onclick="toggleMenu()">✖</span>
         <ul>
           <li><a href="./index.html">Əsas səhifə</a></li>
-          <li><a href="./cars.html" style="color: #ffcc00">Maşınlar</a></li>
+          <li><a href="./cars.html" style="color: red">Maşınlar</a></li>
           <li><a href="./favorites.html">Favorilər</a></li>
           <li><a href="./service.html">Xidmətlər</a></li>
           <li><a href="./aboutus.html">Haqqımızda</a></li>
@@ -492,7 +492,7 @@
           <h1>Luxury and Comfort</h1>
         </div>
       </section>
-
+      
       <section class="cars-section2">
         <div class="container">
           <div class="cars-section2-top">
@@ -521,11 +521,9 @@
           <!-- <div class="vehicle-grid" id="vehicle-container">
           </div> -->
 
-           <div id="vehicle-container">
+          <div id="vehicle-container">
             <p class="loading">Loading vehicles...</p>
           </div>
-
-         
 
           <div id="pagination-info" class="pagination-info"></div>
           <div class="pagination" id="pagination-container">
@@ -651,21 +649,6 @@
                         ? `<p class="vehicle-detail"><strong>Driver:</strong> ${vehicle.driver}</p>`
                         : ""
                     }
-                    <div class="action-buttons">
-                        <button class="deactivate-btn" onclick="toggleBlockStatus('${
-                          vehicle._id
-                        }', ${!vehicle.blocked})">
-                            <i class="fas ${
-                              vehicle.blocked ? "fa-check-circle" : "fa-ban"
-                            }"></i>
-                            ${vehicle.blocked ? "Unblock" : "Block"}
-                        </button>
-                        <button class="delete-btn" onclick="confirmDelete('${
-                          vehicle._id
-                        }')">
-                            <i class="fas fa-trash"></i> Delete
-                        </button>
-                    </div>
                 `;
 
           grid.appendChild(card);
@@ -728,71 +711,6 @@
         currentPage = newPage;
         fetchVehicles(currentPage);
         window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-
-      async function toggleBlockStatus(vehicleId, blocked) {
-        if (
-          !confirm(
-            `Are you sure you want to ${
-              blocked ? "block" : "unblock"
-            } this vehicle?`
-          )
-        ) {
-          return;
-        }
-
-        try {
-          const response = await fetch(
-            `https://backend-nme6.onrender.com/user/vehicles/deactivate/${vehicleId}`,
-            {
-              method: "POST",
-              headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`,
-              },
-              body: JSON.stringify({ blocked }),
-              credentials: "include",
-            }
-          );
-
-          if (!response.ok) {
-            throw new Error("Failed to update vehicle status");
-          }
-
-          alert(`Vehicle ${blocked ? "blocked" : "unblocked"} successfully`);
-          fetchVehicles(currentPage); // Refresh the list
-        } catch (error) {
-          console.error("Error:", error);
-          alert("Error updating vehicle status: " + error.message);
-        }
-      }
-
-      async function confirmDelete(vehicleId) {
-        if (
-          !confirm(
-            "Are you sure you want to permanently delete this vehicle?\nThis action cannot be undone."
-          )
-        ) {
-          return;
-        }
-
-        try {
-          const response = await fetch(
-            `https://backend-nme6.onrender.com/user/vehicles/${vehicleId}`,
-            {
-              method: "DELETE",
-            }
-          );
-
-          if (!response.ok) {
-            throw new Error("Failed to delete vehicle");
-          }
-
-          alert("Vehicle deleted successfully");
-          fetchVehicles(currentPage); // Refresh the list
-        } catch (error) {
-          console.error("Error:", error);
-          alert("Error deleting vehicle: " + error.message);
-        }
       }
 
       // Load vehicles when page loads
