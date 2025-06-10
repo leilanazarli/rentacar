@@ -31,64 +31,64 @@
         --gray: #94a3b8;
         --border: #e2e8f0;
       }
-      
+
       body {
-        font-family: 'Titillium Web', sans-serif;
+        font-family: "Titillium Web", sans-serif;
         background-color: #f1f5f9;
         color: #333;
       }
-      
+
       .cars {
         background-color: #fff;
       }
-      
+
       /* Header styles */
       .header-top {
         background-color: var(--dark);
         color: white;
         padding: 10px 0;
       }
-      
+
       .header-top .container {
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
       }
-      
+
       .header-top-left span {
         font-weight: 700;
         font-size: 1.2rem;
       }
-      
+
       .header-top-right a {
         color: white;
         text-decoration: none;
         margin: 0 10px;
       }
-      
+
       .header-top-right .line {
         color: var(--primary);
       }
-      
+
       .header-bottom {
         background-color: var(--primary);
         padding: 15px 0;
       }
-      
+
       .header-bottom .container {
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
-      
+
       nav ul {
         display: flex;
         list-style: none;
         margin: 0;
         padding: 0;
       }
-      
+
       nav ul li a {
         color: white;
         text-decoration: none;
@@ -97,31 +97,31 @@
         text-transform: uppercase;
         font-size: 0.9rem;
       }
-      
+
       nav ul li a:hover {
         color: var(--dark);
       }
-      
+
       .burger-menu {
         display: none;
         color: white;
         font-size: 1.5rem;
         cursor: pointer;
       }
-      
+
       /* Hero section */
       .cars-section1 {
         position: relative;
         height: 400px;
         overflow: hidden;
       }
-      
+
       .cars-section1 img {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
-      
+
       .overlay {
         position: absolute;
         top: 0;
@@ -137,26 +137,26 @@
         text-align: center;
         padding: 0 20px;
       }
-      
+
       .overlay p {
         font-size: 1.2rem;
         margin-bottom: 10px;
         color: var(--primary);
         font-weight: 600;
       }
-      
+
       .overlay h1 {
         font-size: 3rem;
         font-weight: 700;
         margin: 0;
       }
-      
+
       /* Vehicle listing section */
       .cars-section2 {
         padding: 50px 0;
         background-color: #f8f9fa;
       }
-      
+
       .search-box {
         display: flex;
         flex-wrap: wrap;
@@ -167,8 +167,8 @@
         border-radius: 8px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       }
-      
-      .search-box select, 
+
+      .search-box select,
       .search-box input {
         padding: 10px 15px;
         border: 1px solid var(--border);
@@ -176,7 +176,7 @@
         flex: 1;
         min-width: 200px;
       }
-      
+
       .findbtn {
         padding: 10px 20px;
         background-color: var(--primary);
@@ -186,17 +186,17 @@
         cursor: pointer;
         transition: all 0.3s ease;
       }
-      
+
       .findbtn:hover {
         background-color: #b0001e;
       }
-      
+
       .vehicle-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 25px;
       }
-      
+
       .vehicle-card {
         background-color: white;
         border-radius: 8px;
@@ -204,55 +204,55 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
-      
+
       .vehicle-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
       }
-      
+
       .vehicle-image {
         width: 100%;
         height: 200px;
         object-fit: cover;
       }
-      
+
       .vehicle-content {
         padding: 20px;
       }
-      
+
       .vehicle-name {
         font-size: 1.4rem;
         margin: 0 0 10px 0;
         color: var(--dark);
         font-weight: 700;
       }
-      
+
       .vehicle-detail {
         display: flex;
         align-items: center;
         margin: 8px 0;
         color: #555;
       }
-      
+
       .vehicle-detail i {
         margin-right: 10px;
         color: var(--primary);
         width: 20px;
       }
-      
+
       .vehicle-price {
         font-size: 1.5rem;
         font-weight: 700;
         color: var(--primary);
         margin: 15px 0 10px;
       }
-      
+
       .action-buttons {
         display: flex;
         justify-content: space-between;
         margin-top: 15px;
       }
-      
+
       .rent-btn {
         background-color: var(--primary);
         color: white;
@@ -265,11 +265,11 @@
         flex: 1;
         margin-right: 10px;
       }
-      
+
       .rent-btn:hover {
         background-color: #b0001e;
       }
-      
+
       .favorite-btn {
         background-color: var(--dark);
         color: white;
@@ -282,22 +282,22 @@
         justify-content: center;
         transition: background-color 0.3s ease;
       }
-      
+
       .favorite-btn:hover {
         background-color: #2a2b35;
       }
-      
+
       .favorite-btn.active {
         background-color: var(--primary);
       }
-      
+
       .pagination {
         display: flex;
         justify-content: center;
         margin-top: 40px;
         gap: 10px;
       }
-      
+
       .pagination button {
         padding: 8px 16px;
         background-color: var(--primary);
@@ -307,36 +307,38 @@
         cursor: pointer;
         transition: background-color 0.3s;
       }
-      
+
       .pagination button:disabled {
         background-color: #bdc3c7;
         cursor: not-allowed;
       }
-      
+
       .pagination-info {
         text-align: center;
         margin: 20px 0;
         color: var(--gray);
       }
-      
+
       /* Footer styles */
       footer {
         background-color: var(--dark);
         color: white;
         padding: 50px 0 20px;
       }
-      
+
       footer .row {
         display: flex;
         flex-wrap: wrap;
         gap: 30px;
       }
-      
-      .footer-left, .footer-com, .footer-right {
+
+      .footer-left,
+      .footer-com,
+      .footer-right {
         flex: 1;
         min-width: 250px;
       }
-      
+
       .footer-left span {
         font-size: 1.5rem;
         font-weight: 700;
@@ -344,19 +346,19 @@
         margin-bottom: 15px;
         color: var(--primary);
       }
-      
+
       .footer-left a {
         color: white;
         text-decoration: none;
         font-size: 1.2rem;
       }
-      
+
       footer h1 {
         font-size: 1.3rem;
         margin-bottom: 20px;
         color: var(--primary);
       }
-      
+
       footer a {
         display: block;
         color: #ddd;
@@ -364,15 +366,15 @@
         margin-bottom: 10px;
         transition: color 0.3s;
       }
-      
+
       footer a:hover {
         color: var(--primary);
       }
-      
+
       footer i {
         margin-right: 10px;
       }
-      
+
       /* Responsive styles */
       @media (max-width: 992px) {
         .header-top-right {
@@ -380,34 +382,34 @@
           width: 100%;
           justify-content: center;
         }
-        
+
         nav ul {
           flex-wrap: wrap;
         }
-        
+
         nav ul li {
           margin: 5px 0;
         }
       }
-      
+
       @media (max-width: 768px) {
         .burger-menu {
           display: block;
         }
-        
+
         .header-bottom-left nav {
           display: none;
         }
-        
+
         .overlay h1 {
           font-size: 2rem;
         }
-        
+
         .search-box {
           flex-direction: column;
         }
-        
-        .search-box select, 
+
+        .search-box select,
         .search-box input,
         .findbtn {
           width: 100%;
@@ -450,7 +452,9 @@
               <nav>
                 <ul>
                   <li><a href="./index.html">əsas səhifə</a></li>
-                  <li><a href="./cars.html" style="color: #ffcc00">Maşınlar</a></li>
+                  <li>
+                    <a href="./cars.html" style="color: #ffcc00">Maşınlar</a>
+                  </li>
                   <li><a href="./favorites.html">Favorilər</a></li>
                   <li><a href="./service.html">Xidmətlər</a></li>
                   <li><a href="./aboutus.html">Haqqımızda</a></li>
@@ -464,7 +468,7 @@
           </div>
         </div>
       </header>
-      
+
       <!-- Mobile Menu -->
       <div class="mobile-menu" id="mobileMenu">
         <span class="close-btn" onclick="toggleMenu()">✖</span>
@@ -477,7 +481,7 @@
           <li><a href="./contact.html">Əlaqə</a></li>
         </ul>
       </div>
-      
+
       <section class="cars-section1">
         <img
           src="./assets/img/vehicle_on_fleet_banner.png"
@@ -509,12 +513,20 @@
                 <option value="Business">BUSINESS</option>
               </select>
               <input type="text" id="searchInput" placeholder="🔍 Axtar..." />
-              <button class="btn btn-danger findbtn" id="searchBtn">Axtarış et</button>
+              <button class="btn btn-danger findbtn" id="searchBtn">
+                Axtarış et
+              </button>
             </div>
           </div>
-          <div class="vehicle-grid" id="vehicle-container">
-            <!-- Vehicles will be loaded here -->
+          <!-- <div class="vehicle-grid" id="vehicle-container">
+          </div> -->
+
+           <div id="vehicle-container">
+            <p class="loading">Loading vehicles...</p>
           </div>
+
+         
+
           <div id="pagination-info" class="pagination-info"></div>
           <div class="pagination" id="pagination-container">
             <button id="prevBtn">Əvvəlki</button>
@@ -588,8 +600,8 @@
           const data = await response.json();
 
           // Update total vehicles count
-          document.getElementById("total-vehicles").textContent =
-            data.pagination.total;
+          // document.getElementById("total-vehicles").textContent =
+          //   data.pagination.total;
 
           if (!data.data || data.data.length === 0) {
             container.innerHTML =
