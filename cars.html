@@ -570,291 +570,224 @@
     <script>
       // Current page state
       let currentPage = 1;
-      const limit = 6; // Vehicles per page
-      let allVehicles = [];
-      let filteredVehicles = [];
+      const limit = 5; // Matches your backend default
 
-      // DOM elements
-      const vehicleContainer = document.getElementById('vehicle-container');
-      const paginationContainer = document.getElementById('pagination-container');
-      const paginationInfo = document.getElementById('pagination-info');
-      const prevBtn = document.getElementById('prevBtn');
-      const nextBtn = document.getElementById('nextBtn');
-      const sortSelect = document.getElementById('sortSelect');
-      const typeFilter = document.getElementById('typeFilter');
-      const searchInput = document.getElementById('searchInput');
-      const searchBtn = document.getElementById('searchBtn');
+      async function fetchVehicles(page = 1) {
+        const container = document.getElementById("vehicle-container");
+        container.innerHTML = '<p class="loading">Loading vehicles...</p>';
 
-      // Sample vehicle data (in a real app, this would come from an API)
-      const sampleVehicles = [
-        {
-          id: 1,
-          name: "Mercedes-Benz E-Class",
-          type: "Business",
-          price: 250,
-          year: 2022,
-          image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1000",
-          passengers: 4,
-          doors: 4,
-          transmission: "Automatic",
-          features: ["Leather seats", "Navigation", "Bluetooth"]
-        },
-        {
-          id: 2,
-          name: "Toyota Camry",
-          type: "Comfort",
-          price: 120,
-          year: 2021,
-          image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=1000",
-          passengers: 5,
-          doors: 4,
-          transmission: "Automatic",
-          features: ["Climate control", "Backup camera"]
-        },
-        {
-          id: 3,
-          name: "Hyundai Tucson",
-          type: "SUV",
-          price: 140,
-          year: 2023,
-          image: "https://images.unsplash.com/photo-1622737133809-d95047b9e673?q=80&w=1000",
-          passengers: 5,
-          doors: 4,
-          transmission: "Automatic",
-          features: ["AWD", "Apple CarPlay", "Sunroof"]
-        },
-        {
-          id: 4,
-          name: "Kia Rio",
-          type: "Econom",
-          price: 70,
-          year: 2022,
-          image: "https://images.unsplash.com/photo-1622737133809-d95047b9e673?q=80&w=1000",
-          passengers: 5,
-          doors: 4,
-          transmission: "Manual",
-          features: ["Air conditioning", "Radio"]
-        },
-        {
-          id: 5,
-          name: "BMW 5 Series",
-          type: "Business",
-          price: 280,
-          year: 2023,
-          image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1000",
-          passengers: 4,
-          doors: 4,
-          transmission: "Automatic",
-          features: ["Premium sound", "Heated seats", "Navigation"]
-        },
-        {
-          id: 6,
-          name: "Volkswagen Tiguan",
-          type: "SUV",
-          price: 150,
-          year: 2022,
-          image: "https://images.unsplash.com/photo-1622737133809-d95047b9e673?q=80&w=1000",
-          passengers: 5,
-          doors: 4,
-          transmission: "Automatic",
-          features: ["Apple CarPlay", "Sunroof", "Backup camera"]
-        },
-        {
-          id: 7,
-          name: "Audi A6",
-          type: "Business",
-          price: 300,
-          year: 2023,
-          image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1000",
-          passengers: 4,
-          doors: 4,
-          transmission: "Automatic",
-          features: ["Premium interior", "Navigation", "Heated seats"]
-        },
-        {
-          id: 8,
-          name: "Honda Civic",
-          type: "Comfort",
-          price: 110,
-          year: 2022,
-          image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=1000",
-          passengers: 5,
-          doors: 4,
-          transmission: "Automatic",
-          features: ["Backup camera", "Bluetooth", "Fuel efficient"]
-        },
-        {
-          id: 9,
-          name: "Ford Focus",
-          type: "Econom",
-          price: 80,
-          year: 2021,
-          image: "https://images.unsplash.com/photo-1622737133809-d95047b9e673?q=80&w=1000",
-          passengers: 5,
-          doors: 4,
-          transmission: "Manual",
-          features: ["Air conditioning", "Radio"]
-        }
-      ];
-
-      // Initialize the page
-      document.addEventListener('DOMContentLoaded', () => {
-        // Set sample data
-        allVehicles = sampleVehicles;
-        filteredVehicles = [...allVehicles];
-        
-        // Add event listeners
-        sortSelect.addEventListener('change', applyFilters);
-        typeFilter.addEventListener('change', applyFilters);
-        searchBtn.addEventListener('click', applyFilters);
-        searchInput.addEventListener('keypress', (e) => {
-          if (e.key === 'Enter') applyFilters();
-        });
-        prevBtn.addEventListener('click', () => changePage(-1));
-        nextBtn.addEventListener('click', () => changePage(1));
-        
-        // Load vehicles
-        applyFilters();
-      });
-
-      // Apply filters and sorting
-      function applyFilters() {
-        filteredVehicles = [...allVehicles];
-        
-        // Apply type filter
-        const type = typeFilter.value;
-        if (type !== 'all') {
-          filteredVehicles = filteredVehicles.filter(vehicle => 
-            vehicle.type.toLowerCase() === type.toLowerCase()
+        try {
+          const response = await fetch(
+            `https://backend-nme6.onrender.com/user/vehicles?page=${page}&limit=${limit}`
           );
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const data = await response.json();
+
+          // Update total vehicles count
+          document.getElementById("total-vehicles").textContent =
+            data.pagination.total;
+
+          if (!data.data || data.data.length === 0) {
+            container.innerHTML =
+              '<p class="error-message">No vehicles available at this time.</p>';
+            return;
+          }
+
+          displayVehicles(data.data);
+          setupPagination(data.pagination);
+        } catch (error) {
+          console.error("Error fetching vehicles:", error);
+          container.innerHTML = `<p class="error-message">Error loading vehicles: ${error.message}</p>`;
         }
-        
-        // Apply search
-        const searchTerm = searchInput.value.toLowerCase();
-        if (searchTerm) {
-          filteredVehicles = filteredVehicles.filter(vehicle => 
-            vehicle.name.toLowerCase().includes(searchTerm)
-          );
-        }
-        
-        // Apply sorting
-        const sort = sortSelect.value;
-        if (sort === 'asc') {
-          filteredVehicles.sort((a, b) => a.price - b.price);
-        } else if (sort === 'desc') {
-          filteredVehicles.sort((a, b) => b.price - a.price);
-        }
-        
-        // Reset to first page after filtering
-        currentPage = 1;
-        renderVehicles();
       }
 
-      // Render vehicles for the current page
-      function renderVehicles() {
-        const startIndex = (currentPage - 1) * limit;
-        const endIndex = startIndex + limit;
-        const currentVehicles = filteredVehicles.slice(startIndex, endIndex);
-        
-        // Clear container
-        vehicleContainer.innerHTML = '';
-        
-        if (currentVehicles.length === 0) {
-          vehicleContainer.innerHTML = `
-            <div class="no-vehicles" style="grid-column: 1/-1; text-align: center; padding: 40px;">
-              <i class="fas fa-car" style="font-size: 4rem; color: #ddd; margin-bottom: 20px;"></i>
-              <h3 style="color: #666;">Axtarışınıza uyğun maşın tapılmadı</h3>
-              <p>Başqa axtarış kriteriyası ilə cəhd edin və ya bütün filtrləri təmizləyin</p>
-            </div>
-          `;
+      function displayVehicles(vehicles) {
+        const container = document.getElementById("vehicle-container");
+        container.innerHTML = '<div class="vehicle-grid"></div>';
+        const grid = container.querySelector(".vehicle-grid");
+
+        vehicles.forEach((vehicle) => {
+          const card = document.createElement("div");
+          card.className = `vehicle-card ${vehicle.blocked ? "blocked" : ""}`;
+
+          // Use the first image if available
+          const imageUrl =
+            vehicle.images && vehicle.images.length > 0
+              ? vehicle.images[0]
+              : "https://via.placeholder.com/300x200?text=No+Image";
+
+          card.innerHTML = `
+                    <img src="${imageUrl}" alt="${
+            vehicle.name
+          }" class="vehicle-image">
+                    <h2 class="vehicle-name">${vehicle.name || "No Name"}</h2>
+                    <p class="vehicle-detail"><strong>City:</strong> ${
+                      vehicle.city || "N/A"
+                    }</p>
+                    <p class="vehicle-detail"><strong>Price:</strong> $${
+                      vehicle.price || "0"
+                    }/day</p>
+                    <p class="vehicle-detail"><strong>Delivery:</strong> ${
+                      vehicle.delivery ? "Yes" : "No"
+                    }</p>
+                    ${
+                      vehicle.driver
+                        ? `<p class="vehicle-detail"><strong>Driver:</strong> ${vehicle.driver}</p>`
+                        : ""
+                    }
+                    <div class="action-buttons">
+                        <button class="deactivate-btn" onclick="toggleBlockStatus('${
+                          vehicle._id
+                        }', ${!vehicle.blocked})">
+                            <i class="fas ${
+                              vehicle.blocked ? "fa-check-circle" : "fa-ban"
+                            }"></i>
+                            ${vehicle.blocked ? "Unblock" : "Block"}
+                        </button>
+                        <button class="delete-btn" onclick="confirmDelete('${
+                          vehicle._id
+                        }')">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                `;
+
+          grid.appendChild(card);
+        });
+      }
+
+      function setupPagination(pagination) {
+        const paginationContainer = document.getElementById(
+          "pagination-container"
+        );
+        const infoContainer = document.getElementById("pagination-info");
+
+        if (!pagination || pagination.pages <= 1) {
+          paginationContainer.innerHTML = "";
+          infoContainer.innerHTML = "";
           return;
         }
-        
-        // Render vehicles
-        currentVehicles.forEach(vehicle => {
-          const vehicleCard = document.createElement('div');
-          vehicleCard.className = 'vehicle-card';
-          vehicleCard.innerHTML = `
-            <img src="${vehicle.image}" alt="${vehicle.name}" class="vehicle-image">
-            <div class="vehicle-content">
-              <h2 class="vehicle-name">${vehicle.name}</h2>
-              <div class="vehicle-detail">
-                <i class="fas fa-calendar-alt"></i>
-                <span>${vehicle.year} • ${vehicle.type}</span>
-              </div>
-              <div class="vehicle-detail">
-                <i class="fas fa-users"></i>
-                <span>${vehicle.passengers} sərnişin</span>
-              </div>
-              <div class="vehicle-detail">
-                <i class="fas fa-car"></i>
-                <span>${vehicle.doors} qapı • ${vehicle.transmission}</span>
-              </div>
-              <div class="vehicle-price">${vehicle.price} ₼ / gün</div>
-              <div class="action-buttons">
-                <button class="rent-btn" onclick="rentVehicle(${vehicle.id})">
-                  <i class="fas fa-car"></i> İcarə et
-                </button>
-                <button class="favorite-btn" onclick="toggleFavorite(${vehicle.id})">
-                  <i class="fas fa-heart"></i>
-                </button>
-              </div>
-            </div>
-          `;
-          vehicleContainer.appendChild(vehicleCard);
-        });
-        
-        // Update pagination
-        updatePagination();
+
+        infoContainer.innerHTML = `Page ${pagination.page} of ${pagination.pages} (${pagination.limit} items per page)`;
+
+        paginationContainer.innerHTML = `
+                <button ${
+                  pagination.page === 1 ? "disabled" : ""
+                } onclick="changePage(1)">First</button>
+                <button ${
+                  pagination.page === 1 ? "disabled" : ""
+                } onclick="changePage(${pagination.page - 1})">Previous</button>
+                ${generatePageButtons(pagination.page, pagination.pages)}
+                <button ${
+                  pagination.page === pagination.pages ? "disabled" : ""
+                } onclick="changePage(${pagination.page + 1})">Next</button>
+                <button ${
+                  pagination.page === pagination.pages ? "disabled" : ""
+                } onclick="changePage(${pagination.pages})">Last</button>
+            `;
       }
 
-      // Update pagination controls
-      function updatePagination() {
-        const totalPages = Math.ceil(filteredVehicles.length / limit);
-        
-        // Update pagination info
-        paginationInfo.innerHTML = `
-          Səhifə ${currentPage} / ${totalPages} • Ümumi ${filteredVehicles.length} maşın
-        `;
-        
-        // Enable/disable pagination buttons
-        prevBtn.disabled = currentPage === 1;
-        nextBtn.disabled = currentPage === totalPages || totalPages === 0;
-      }
+      function generatePageButtons(currentPage, totalPages) {
+        let buttons = "";
+        const maxButtons = 5; // Show max 5 page buttons
 
-      // Change page
-      function changePage(direction) {
-        const totalPages = Math.ceil(filteredVehicles.length / limit);
-        
-        if (direction === -1 && currentPage > 1) {
-          currentPage--;
-        } else if (direction === 1 && currentPage < totalPages) {
-          currentPage++;
+        let start = Math.max(1, currentPage - Math.floor(maxButtons / 2));
+        let end = Math.min(totalPages, start + maxButtons - 1);
+
+        // Adjust if we're at the end
+        if (end - start + 1 < maxButtons) {
+          start = Math.max(1, end - maxButtons + 1);
         }
-        
-        renderVehicles();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        for (let i = start; i <= end; i++) {
+          buttons += `<button ${
+            i === currentPage ? "disabled" : ""
+          } onclick="changePage(${i})">${i}</button>`;
+        }
+
+        return buttons;
       }
 
-      // Toggle favorite
-      function toggleFavorite(vehicleId) {
-        // In a real app, this would save to localStorage or an API
-        alert(`${vehicleId} nömrəli maşın favorilərə əlavə edildi`);
+      function changePage(newPage) {
+        currentPage = newPage;
+        fetchVehicles(currentPage);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
 
-      // Rent vehicle
-      function rentVehicle(vehicleId) {
-        // In a real app, this would navigate to a booking page
-        alert(`${vehicleId} nömrəli maşın icarəyə götürüldü`);
+      async function toggleBlockStatus(vehicleId, blocked) {
+        if (
+          !confirm(
+            `Are you sure you want to ${
+              blocked ? "block" : "unblock"
+            } this vehicle?`
+          )
+        ) {
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `https://backend-nme6.onrender.com/user/vehicles/deactivate/${vehicleId}`,
+            {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
+              body: JSON.stringify({ blocked }),
+              credentials: "include",
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error("Failed to update vehicle status");
+          }
+
+          alert(`Vehicle ${blocked ? "blocked" : "unblocked"} successfully`);
+          fetchVehicles(currentPage); // Refresh the list
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Error updating vehicle status: " + error.message);
+        }
       }
 
-      // Toggle mobile menu
-      function toggleMenu() {
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+      async function confirmDelete(vehicleId) {
+        if (
+          !confirm(
+            "Are you sure you want to permanently delete this vehicle?\nThis action cannot be undone."
+          )
+        ) {
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `https://backend-nme6.onrender.com/user/vehicles/${vehicleId}`,
+            {
+              method: "DELETE",
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error("Failed to delete vehicle");
+          }
+
+          alert("Vehicle deleted successfully");
+          fetchVehicles(currentPage); // Refresh the list
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Error deleting vehicle: " + error.message);
+        }
       }
+
+      // Load vehicles when page loads
+      document.addEventListener("DOMContentLoaded", () =>
+        fetchVehicles(currentPage)
+      );
     </script>
-    
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
