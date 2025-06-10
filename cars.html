@@ -1,201 +1,695 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="./assets/img/logo.jpeg">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/scss//main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./assets/img/logo.jpeg" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/scss//main.css" />
     <title>Mamedov Rent A Car</title>
-</head>
-<body>
+
+    <style>
+      :root {
+        --primary: #4361ee;
+        --primary-light: #e0e7ff;
+        --error: #ef233c;
+        --error-light: #fdecea;
+        --success: #2ecc71;
+        --success-light: #e8f5e9;
+        --dark: #1e293b;
+        --light: #f8fafc;
+        --gray: #94a3b8;
+        --border: #e2e8f0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f1f5f9;
+        color: var(--dark);
+        min-height: 100vh;
+      }
+
+      .admin-container {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      /* Sidebar Styles */
+      .sidebar {
+        width: 280px;
+        background: white;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        padding: 2rem 1.5rem;
+        position: fixed;
+        height: 100vh;
+        transition: all 0.3s ease;
+      }
+
+      .sidebar-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .sidebar-header h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-left: 0.75rem;
+      }
+
+      .logo {
+        width: 36px;
+        height: 36px;
+        background-color: var(--primary);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.25rem;
+      }
+
+      .nav-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        color: var(--dark);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.2s ease;
+      }
+
+      .nav-link:hover {
+        background-color: var(--primary-light);
+        color: var(--primary);
+      }
+
+      .nav-link.active {
+        background-color: var(--primary-light);
+        color: var(--primary);
+      }
+
+      .nav-link i {
+        margin-right: 0.75rem;
+        font-size: 1.25rem;
+      }
+
+      /* Main Content Styles */
+      .main-content {
+        flex: 1;
+        margin-left: 280px;
+        padding: 2rem;
+        background-color: var(--light);
+        min-height: 100vh;
+      }
+
+      /* Vehicle Card Styles */
+      .vehicle-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        transition: transform 0.2s;
+      }
+
+      .vehicle-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .vehicle-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-bottom: 15px;
+      }
+
+      .vehicle-name {
+        font-size: 1.4rem;
+        margin: 0 0 10px 0;
+        color: #2c3e50;
+      }
+
+      .vehicle-detail {
+        margin: 5px 0;
+        color: #555;
+      }
+
+      .error-message {
+        color: #e74c3c;
+        text-align: center;
+        padding: 20px;
+        font-size: 1.2rem;
+      }
+
+      .loading {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #7f8c8d;
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .pagination button {
+        padding: 8px 16px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .pagination button:hover {
+        background-color: #2980b9;
+      }
+
+      .pagination button:disabled {
+        background-color: #bdc3c7;
+        cursor: not-allowed;
+      }
+
+      .pagination-info {
+        text-align: center;
+        margin: 10px 0;
+        color: #7f8c8d;
+      }
+
+      .action-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+      }
+
+      .delete-btn {
+        background-color: #ef233c;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .deactivate-btn {
+        background-color: #f77f00;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .blocked {
+        opacity: 0.7;
+        position: relative;
+      }
+
+      .blocked::after {
+        content: "BLOCKED";
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: var(--error);
+        color: white;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .form-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      .form-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .sidebar {
+          width: 100%;
+          height: auto;
+          position: relative;
+          padding: 1.5rem;
+        }
+
+        .main-content {
+          margin-left: 0;
+          padding: 1.5rem;
+        }
+
+        .admin-container {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <div class="cars">
       <header>
         <div class="header-top">
-            <div class="container">
-                <div class="header-top-left logos">
-                <span>Mamedov Rent A Car</span>
-                </div>
-                <div class="header-top-right">
-                    <a href="tel:+994 055 296 54 50"><i class="fa-solid fa-phone"></i><span >+994 055 296 54 50</span></a>
-                    <span class="line">|</span>
-                    <a href="https://maps.app.goo.gl/BiraJu8YX1WmkHM56"><i class="fa-solid fa-location-dot"></i><span>Gəncə şəhər Fərhad Əliyev küçəsi </span></a>
-                     
-                </div>
+          <div class="container">
+            <div class="header-top-left logos">
+              <span>Mamedov Rent A Car</span>
             </div>
+            <div class="header-top-right">
+              <a href="tel:+994 055 296 54 50"
+                ><i class="fa-solid fa-phone"></i
+                ><span>+994 055 296 54 50</span></a
+              >
+              <span class="line">|</span>
+              <a href="https://maps.app.goo.gl/BiraJu8YX1WmkHM56"
+                ><i class="fa-solid fa-location-dot"></i
+                ><span>Gəncə şəhər Fərhad Əliyev küçəsi </span></a
+              >
+            </div>
+          </div>
         </div>
         <div class="header-bottom">
-         <div class="container">
-          <div class=" logo" style="font-size: 30px; color: white;display: none;">
-            Mamedov Rent A Car
+          <div class="container">
+            <div
+              class="logo"
+              style="font-size: 30px; color: white; display: none"
+            >
+              Mamedov Rent A Car
             </div>
-            
-             <div class="header-bottom-left">
-               <nav>
+
+            <div class="header-bottom-left">
+              <nav>
                 <ul>
-                    <li><a href="./index.html" >əsas səhifə</a></li>
-                    <li><a href="./cars.html"   style="color: red;">Maşınlar</a></li>
-                    <li><a href="./favorites.html">Favorilər</a></li>
-                    <li><a href="./service.html">Xidmətlər</a></li>
-                    <li><a href="./aboutus.html">Haqqımızda</a></li>
-                    <li><a href="./contact.html">əlaqə</a></li>
-                  
+                  <li><a href="./index.html">əsas səhifə</a></li>
+                  <li><a href="./cars.html" style="color: red">Maşınlar</a></li>
+                  <li><a href="./favorites.html">Favorilər</a></li>
+                  <li><a href="./service.html">Xidmətlər</a></li>
+                  <li><a href="./aboutus.html">Haqqımızda</a></li>
+                  <li><a href="./contact.html">əlaqə</a></li>
                 </ul>
-               </nav>
-             </div>
-             <div class="burger-menu" onclick="toggleMenu()">
+              </nav>
+            </div>
+            <div class="burger-menu" onclick="toggleMenu()">
               <i class="fa-solid fa-bars"></i>
             </div>
+          </div>
         </div>
-    </header>
-    <!-- Mobil Menyu -->
-<div class="mobile-menu" id="mobileMenu">
-<span class="close-btn" onclick="toggleMenu()">✖</span>
-<ul>
-  <li><a href="./index.html" >Əsas səhifə</a></li>
-  <li><a href="./cars.html"  style="color: red;">Maşınlar</a></li>
-  <li><a href="./favorites.html">Favorilər</a></li>
-  <li><a href="./service.html">Xidmətlər</a></li>
-  <li><a href="./aboutus.html">Haqqımızda</a></li>
-  <li><a href="./contact.html">Əlaqə</a></li>
-</ul>
-</div>
-        <section class="cars-section1">
-          <!-- <img src="./assets/img/vehicle_on_fleet_banner.png" alt="">
-          <div class="container">
-                    <div class="cars-section1-top row">
-                      <div class="siralama-price col-6">
-                       <i class="fa-solid fa-arrow-up"></i>
-                         <i class="fa-solid fa-arrow-down"></i>
-                         <span>Sıralama</span>
-                       <select class="form-select" aria-label="Default select example">
-                         <option selected>Open this select menu</option>
-                         <option value="1">One</option>
-                         <option value="2">Two</option>
-                         <option value="3">Three</option>
-                       </select>
-                      </div>
-                      <div class=" cars-top col-6">
-                       <input type="text" placeholder="Search..." id="searchInput">
-                       <div class="search"></div>
-                      </div>
-                        </div>
-                         </div>
-        </section> -->
-        
-        <section class="cars-section1">
-          <img src="./assets/img/vehicle_on_fleet_banner.png" alt="Luxury and Comfort">
-          <div class="overlay">
-              <p>TRANSPORTATION</p>
-              <h1>Luxury and Comfort</h1>
-              
-          </div>
+      </header>
+      <!-- Mobil Menyu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <span class="close-btn" onclick="toggleMenu()">✖</span>
+        <ul>
+          <li><a href="./index.html">Əsas səhifə</a></li>
+          <li><a href="./cars.html" style="color: red">Maşınlar</a></li>
+          <li><a href="./favorites.html">Favorilər</a></li>
+          <li><a href="./service.html">Xidmətlər</a></li>
+          <li><a href="./aboutus.html">Haqqımızda</a></li>
+          <li><a href="./contact.html">Əlaqə</a></li>
+        </ul>
+      </div>
+
+      <section class="cars-section1">
+        <img
+          src="./assets/img/vehicle_on_fleet_banner.png"
+          alt="Luxury and Comfort"
+        />
+        <div class="overlay">
+          <p>TRANSPORTATION</p>
+          <h1>Luxury and Comfort</h1>
+        </div>
       </section>
-      
-      
-        <section class="cars-section2">
-            <div class="container ">
-             <div class="cars-section2-top">
-              <div class="search-box">
-                <select id="sortSelect" >
+
+      <section class="cars-section2">
+        <div class="container">
+          <div class="cars-section2-top">
+            <div class="search-box">
+              <select id="sortSelect">
                 <option value="all">Qiymət</option>
-                  <option value="asc">Azdan çoxa</option>
-                  <option value="desc">Çoxdan az</option>
+                <option value="asc">Azdan çoxa</option>
+                <option value="desc">Çoxdan az</option>
               </select>
-              
-                <select id="typeFilter" onchange="filterCars()">
-                    <option selected class="option" value="all">Choose Car Type</option>
-                    <option value="Econom"> ECONOM</option>
-                    <option value="Comfort"> COMFORT</option>
-                    <option value="SUV"> SUV</option>
-                    <option value="Business">BUSINESS </option>
-                    
-                </select>
-                <input type="text"  id="searchInput" placeholder="🔍 Axtar..." >
-                <button class="btn btn-danger findbtn">Axtarış et</button>
+
+              <select id="typeFilter" onchange="filterCars()">
+                <option selected class="option" value="all">
+                  Choose Car Type
+                </option>
+                <option value="Econom">ECONOM</option>
+                <option value="Comfort">COMFORT</option>
+                <option value="SUV">SUV</option>
+                <option value="Business">BUSINESS</option>
+              </select>
+              <input type="text" id="searchInput" placeholder="🔍 Axtar..." />
+              <button class="btn btn-danger findbtn">Axtarış et</button>
             </div>
-             </div>
-              <div class="row cards  cars-section1-bottom" id="carContainer"  >
-                <!-- <div class="card col-4">
-                  <div class="card-img">
-                    <a href=""><img src="./assets/img/home img 1.jpg" class="car-img" ></a>
-                    <p class="cars-years">2020</p>
-                    <button id="heart" class="btn btn-dark" style="border-radius: 50%;"><i class="fa-regular fa-heart"></i></button>
-                  </div> 
-                  <div class="card-body">
-                    <div class="card-title">
-                      <a href="" class="car-title-name">Ford Mustang 2016</a>
-                    </div>
-                    <div class="card-cars-about row">
-                      <div class="col-3">
-                        <img src="./assets/img/seat.png" alt="" style="filter: grayscale(100%);"> 
-                        <span class="passenger">4</span>
-                      </div>
-                      <div class="col-3">
-                        <img src="./assets/img/car-door (1).png" alt="">
-                        <span class="car-door">2</span>
-                      </div>
-                      <div class="col-3">
-                        <img src="./assets/img/motor.png" alt="">
-                        <span class="gear-stick">1.4</span>
-                      </div>
-                      <div class="col-3">
-                        <img src="./assets/img/transport.png" alt="">
-                        <span class="car-type">SUV</span>
-                      </div>
-                    </div>
-                    <div class="card-cars-price">
-                      <button class="btn btn-danger" style="border-radius: 55px;" >Rent Now</button>
-                      <p><span class="car-price">200</span> ₼ /günü</p>
-                    </div>
-                  </div>
-                </div> -->
-                
-              </div>
-              <div class="pagination">
-                <button id="prevBtn" onclick="changePage(-1)">Previous</button>
-                <span id="pageNumber">1</span>
-                <button id="nextBtn" onclick="changePage(1)">Next</button>
-            </div>
-              
-            </div>
-        </section>
-        <hr>
-        <footer>
-          <div class="container">
-             <div class="row">
-               <div class="footer-left col-lg-4 col-md-12">
-                 <span>Mamedov Rent A Car</span>
-                 <a href="tel:+994552965450"><h1 style="font-weight: 800;">Çağrı Mərkəzi :(+994) 055 296 54 50</h1></a>
-               </div>
-               <div class="footer-com col-lg-4 col-md-12">
-                 <h1>Menyu</h1>
-                 <a href="./aboutus.html">Haqqımızda</a>
-                 <a href="./service.html">Xidmətlər</a>
-                 <a href="./contact.html">Əlaqə</a>
-               </div>
-               <div class="footer-right col-lg-4 col-md-12">
-                 <h1>Bizi izləyin</h1>
-                 <a href="https://www.instagram.com/gence_rentacar/profilecard/?igsh=OW9wZ2Z0NXR1em90 " target="_blank"><i class="fa-brands fa-instagram"></i>İnstagram</a>
-                 <a href="https://www.tiktok.com/@gence_rentacar_?_t=ZS-8sjfUxkzvVJ&_r=1" target="_blank"><i class="fa-brands fa-tiktok"></i>Tiktok</a>
-                 <a href=" https://wa.me/994552965450" target="_blank"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
-               </div>
-             </div>
           </div>
-         </footer>
-        <hr>
+          <div class="row cards cars-section1-bottom" id="carContainer">
+            <main class="main-content">
+              <div class="form-header">
+                <h2 class="form-title">Bütün Maşinlar</h2>
+              </div>
+
+              <!-- Total Vehicles Count -->
+              <div class="bg-white p-4 rounded-lg shadow mb-6">
+                <div class="text-gray-500 text-lg">Görünən Maşınlar</div>
+                <div class="text-2xl font-bold" id="total-vehicles">
+                  Loading...
+                </div>
+              </div>
+
+              <div id="vehicle-container">
+                <p class="loading">Loading vehicles...</p>
+              </div>
+              <div id="pagination-container" class="pagination"></div>
+              <div id="pagination-info" class="pagination-info"></div>
+            </main>
+          </div>
+          <div class="pagination">
+            <button id="prevBtn" onclick="changePage(-1)">Previous</button>
+            <span id="pageNumber">1</span>
+            <button id="nextBtn" onclick="changePage(1)">Next</button>
+          </div>
+        </div>
+      </section>
+      <hr />
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="footer-left col-lg-4 col-md-12">
+              <span>Mamedov Rent A Car</span>
+              <a href="tel:+994552965450"
+                ><h1 style="font-weight: 800">
+                  Çağrı Mərkəzi :(+994) 055 296 54 50
+                </h1></a
+              >
+            </div>
+            <div class="footer-com col-lg-4 col-md-12">
+              <h1>Menyu</h1>
+              <a href="./aboutus.html">Haqqımızda</a>
+              <a href="./service.html">Xidmətlər</a>
+              <a href="./contact.html">Əlaqə</a>
+            </div>
+            <div class="footer-right col-lg-4 col-md-12">
+              <h1>Bizi izləyin</h1>
+              <a
+                href="https://www.instagram.com/gence_rentacar/profilecard/?igsh=OW9wZ2Z0NXR1em90 "
+                target="_blank"
+                ><i class="fa-brands fa-instagram"></i>İnstagram</a
+              >
+              <a
+                href="https://www.tiktok.com/@gence_rentacar_?_t=ZS-8sjfUxkzvVJ&_r=1"
+                target="_blank"
+                ><i class="fa-brands fa-tiktok"></i>Tiktok</a
+              >
+              <a href=" https://wa.me/994552965450" target="_blank"
+                ><i class="fa-brands fa-whatsapp"></i>WhatsApp</a
+              >
+            </div>
+          </div>
+        </div>
+      </footer>
+      <hr />
       <div class="container">
-        <p style="color: white;text-align: center; font-size: 18px;">Created & Designed by Nazarli</p>
+        <p style="color: white; text-align: center; font-size: 18px">
+          Created & Designed by Nazarli
+        </p>
       </div>
     </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js" integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+      integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="./assets/js/common.js"></script>
     <script src="./assets/js/cars.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+
+    <script>
+      // Current page state
+      let currentPage = 1;
+      const limit = 5; // Matches your backend default
+
+      async function fetchVehicles(page = 1) {
+        const container = document.getElementById("vehicle-container");
+        container.innerHTML = '<p class="loading">Loading vehicles...</p>';
+
+        try {
+          const response = await fetch(
+            `https://backend-nme6.onrender.com/user/vehicles?page=${page}&limit=${limit}`
+          );
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const data = await response.json();
+
+          // Update total vehicles count
+          document.getElementById("total-vehicles").textContent =
+            data.pagination.total;
+
+          if (!data.data || data.data.length === 0) {
+            container.innerHTML =
+              '<p class="error-message">No vehicles available at this time.</p>';
+            return;
+          }
+
+          displayVehicles(data.data);
+          setupPagination(data.pagination);
+        } catch (error) {
+          console.error("Error fetching vehicles:", error);
+          container.innerHTML = `<p class="error-message">Error loading vehicles: ${error.message}</p>`;
+        }
+      }
+
+      function displayVehicles(vehicles) {
+        const container = document.getElementById("vehicle-container");
+        container.innerHTML = '<div class="vehicle-grid"></div>';
+        const grid = container.querySelector(".vehicle-grid");
+
+        vehicles.forEach((vehicle) => {
+          const card = document.createElement("div");
+          card.className = `vehicle-card ${vehicle.blocked ? "blocked" : ""}`;
+
+          // Use the first image if available
+          const imageUrl =
+            vehicle.images && vehicle.images.length > 0
+              ? vehicle.images[0]
+              : "https://via.placeholder.com/300x200?text=No+Image";
+
+          card.innerHTML = `
+                    <img src="${imageUrl}" alt="${
+            vehicle.name
+          }" class="vehicle-image">
+                    <h2 class="vehicle-name">${vehicle.name || "No Name"}</h2>
+                    <p class="vehicle-detail"><strong>City:</strong> ${
+                      vehicle.city || "N/A"
+                    }</p>
+                    <p class="vehicle-detail"><strong>Price:</strong> $${
+                      vehicle.price || "0"
+                    }/day</p>
+                    <p class="vehicle-detail"><strong>Delivery:</strong> ${
+                      vehicle.delivery ? "Yes" : "No"
+                    }</p>
+                    ${
+                      vehicle.driver
+                        ? `<p class="vehicle-detail"><strong>Driver:</strong> ${vehicle.driver}</p>`
+                        : ""
+                    }
+                    <div class="action-buttons">
+                        <button class="deactivate-btn" onclick="toggleBlockStatus('${
+                          vehicle._id
+                        }', ${!vehicle.blocked})">
+                            <i class="fas ${
+                              vehicle.blocked ? "fa-check-circle" : "fa-ban"
+                            }"></i>
+                            ${vehicle.blocked ? "Unblock" : "Block"}
+                        </button>
+                        <button class="delete-btn" onclick="confirmDelete('${
+                          vehicle._id
+                        }')">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                `;
+
+          grid.appendChild(card);
+        });
+      }
+
+      function setupPagination(pagination) {
+        const paginationContainer = document.getElementById(
+          "pagination-container"
+        );
+        const infoContainer = document.getElementById("pagination-info");
+
+        if (!pagination || pagination.pages <= 1) {
+          paginationContainer.innerHTML = "";
+          infoContainer.innerHTML = "";
+          return;
+        }
+
+        infoContainer.innerHTML = `Page ${pagination.page} of ${pagination.pages} (${pagination.limit} items per page)`;
+
+        paginationContainer.innerHTML = `
+                <button ${
+                  pagination.page === 1 ? "disabled" : ""
+                } onclick="changePage(1)">First</button>
+                <button ${
+                  pagination.page === 1 ? "disabled" : ""
+                } onclick="changePage(${pagination.page - 1})">Previous</button>
+                ${generatePageButtons(pagination.page, pagination.pages)}
+                <button ${
+                  pagination.page === pagination.pages ? "disabled" : ""
+                } onclick="changePage(${pagination.page + 1})">Next</button>
+                <button ${
+                  pagination.page === pagination.pages ? "disabled" : ""
+                } onclick="changePage(${pagination.pages})">Last</button>
+            `;
+      }
+
+      function generatePageButtons(currentPage, totalPages) {
+        let buttons = "";
+        const maxButtons = 5; // Show max 5 page buttons
+
+        let start = Math.max(1, currentPage - Math.floor(maxButtons / 2));
+        let end = Math.min(totalPages, start + maxButtons - 1);
+
+        // Adjust if we're at the end
+        if (end - start + 1 < maxButtons) {
+          start = Math.max(1, end - maxButtons + 1);
+        }
+
+        for (let i = start; i <= end; i++) {
+          buttons += `<button ${
+            i === currentPage ? "disabled" : ""
+          } onclick="changePage(${i})">${i}</button>`;
+        }
+
+        return buttons;
+      }
+
+      function changePage(newPage) {
+        currentPage = newPage;
+        fetchVehicles(currentPage);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      async function toggleBlockStatus(vehicleId, blocked) {
+        if (
+          !confirm(
+            `Are you sure you want to ${
+              blocked ? "block" : "unblock"
+            } this vehicle?`
+          )
+        ) {
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `https://backend-nme6.onrender.com/user/vehicles/deactivate/${vehicleId}`,
+            {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
+              body: JSON.stringify({ blocked }),
+              credentials: "include",
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error("Failed to update vehicle status");
+          }
+
+          alert(`Vehicle ${blocked ? "blocked" : "unblocked"} successfully`);
+          fetchVehicles(currentPage); // Refresh the list
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Error updating vehicle status: " + error.message);
+        }
+      }
+
+      async function confirmDelete(vehicleId) {
+        if (
+          !confirm(
+            "Are you sure you want to permanently delete this vehicle?\nThis action cannot be undone."
+          )
+        ) {
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `https://backend-nme6.onrender.com/user/vehicles/${vehicleId}`,
+            {
+              method: "DELETE",
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error("Failed to delete vehicle");
+          }
+
+          alert("Vehicle deleted successfully");
+          fetchVehicles(currentPage); // Refresh the list
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Error deleting vehicle: " + error.message);
+        }
+      }
+
+      // Load vehicles when page loads
+      document.addEventListener("DOMContentLoaded", () =>
+        fetchVehicles(currentPage)
+      );
+    </script>
+  </body>
 </html>
