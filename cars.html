@@ -25,11 +25,11 @@
     />
     <link rel="stylesheet" href="./assets/scss//main.css" />
 
-    <style>
+    <!-- <style>
       /* Vehicle listing section */
       .cars-section2 {
         padding: 50px 0;
-        background-color: #f8f9fa;
+        /* background-color: #f8f9fa; */
       }
 
       .search-box {
@@ -194,7 +194,7 @@
         color: var(--gray);
       }
 
-    </style>
+    </style> -->
 
     <title>Mamedov Rent A Car</title>
   </head>
@@ -354,151 +354,148 @@
       </div>
     </div>
 
-    <script>
-      // Current page state
-      let currentPage = 1;
-      const limit = 5; // Matches your backend default
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  let currentPage = 1;
+  const limit = 5;
 
-      async function fetchVehicles(page = 1) {
-        const container = document.getElementById("vehicle-container");
-        container.innerHTML = '<p class="loading">Loading vehicles...</p>';
+  async function fetchVehicles(page = 1) {
+    const container = document.getElementById("vehicle-container");
+    container.innerHTML = '<p class="loading">Loading vehicles...</p>';
 
-        try {
-          const response = await fetch(
-            `https://backend-nme6.onrender.com/user/vehicles?page=${page}&limit=${limit}`
-          );
-
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-
-          const data = await response.json();
-
-          // Update total vehicles count
-          // document.getElementById("total-vehicles").textContent =
-          //   data.pagination.total;
-
-          if (!data.data || data.data.length === 0) {
-            container.innerHTML =
-              '<p class="error-message">No vehicles available at this time.</p>';
-            return;
-          }
-
-          displayVehicles(data.data);
-          setupPagination(data.pagination);
-        } catch (error) {
-          console.error("Error fetching vehicles:", error);
-          container.innerHTML = `<p class="error-message">Error loading vehicles: ${error.message}</p>`;
-        }
-      }
-
-      function displayVehicles(vehicles) {
-        const container = document.getElementById("vehicle-container");
-        container.innerHTML = '<div class="vehicle-grid"></div>';
-        const grid = container.querySelector(".vehicle-grid");
-
-        vehicles.forEach((vehicle) => {
-          const card = document.createElement("div");
-          card.className = `vehicle-card ${vehicle.blocked ? "blocked" : ""}`;
-
-          // Use the first image if available
-          const imageUrl =
-            vehicle.images && vehicle.images.length > 0
-              ? vehicle.images[0]
-              : "https://via.placeholder.com/300x200?text=No+Image";
-
-          card.innerHTML = `
-                    <img src="${imageUrl}" alt="${
-            vehicle.name
-          }" class="vehicle-image">
-                    <h2 class="vehicle-name">${vehicle.name || "No Name"}</h2>
-                    <p class="vehicle-detail"><strong>City:</strong> ${
-                      vehicle.city || "N/A"
-                    }</p>
-                    <p class="vehicle-detail"><strong>Price:</strong> $${
-                      vehicle.price || "0"
-                    }/day</p>
-                    <p class="vehicle-detail"><strong>Delivery:</strong> ${
-                      vehicle.delivery ? "Yes" : "No"
-                    }</p>
-                    ${
-                      vehicle.driver
-                        ? `<p class="vehicle-detail"><strong>Driver:</strong> ${vehicle.driver}</p>`
-                        : ""
-                    }
-                `;
-
-          grid.appendChild(card);
-        });
-      }
-
-      function setupPagination(pagination) {
-        const paginationContainer = document.getElementById(
-          "pagination-container"
-        );
-        const infoContainer = document.getElementById("pagination-info");
-
-        if (!pagination || pagination.pages <= 1) {
-          paginationContainer.innerHTML = "";
-          infoContainer.innerHTML = "";
-          return;
-        }
-
-        infoContainer.innerHTML = `Page ${pagination.page} of ${pagination.pages} (${pagination.limit} items per page)`;
-
-        paginationContainer.innerHTML = `
-                <button ${
-                  pagination.page === 1 ? "disabled" : ""
-                } onclick="changePage(1)">First</button>
-                <button ${
-                  pagination.page === 1 ? "disabled" : ""
-                } onclick="changePage(${pagination.page - 1})">Previous</button>
-                ${generatePageButtons(pagination.page, pagination.pages)}
-                <button ${
-                  pagination.page === pagination.pages ? "disabled" : ""
-                } onclick="changePage(${pagination.page + 1})">Next</button>
-                <button ${
-                  pagination.page === pagination.pages ? "disabled" : ""
-                } onclick="changePage(${pagination.pages})">Last</button>
-            `;
-      }
-
-      function generatePageButtons(currentPage, totalPages) {
-        let buttons = "";
-        const maxButtons = 5; // Show max 5 page buttons
-
-        let start = Math.max(1, currentPage - Math.floor(maxButtons / 2));
-        let end = Math.min(totalPages, start + maxButtons - 1);
-
-        // Adjust if we're at the end
-        if (end - start + 1 < maxButtons) {
-          start = Math.max(1, end - maxButtons + 1);
-        }
-
-        for (let i = start; i <= end; i++) {
-          buttons += `<button ${
-            i === currentPage ? "disabled" : ""
-          } onclick="changePage(${i})">${i}</button>`;
-        }
-
-        return buttons;
-      }
-
-      function changePage(newPage) {
-        currentPage = newPage;
-        fetchVehicles(currentPage);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-
-      // Load vehicles when page loads
-      document.addEventListener("DOMContentLoaded", () =>
-        fetchVehicles(currentPage)
+    try {
+      const response = await axios.get(
+        `https://backend-nme6.onrender.com/user/vehicles?page=${page}&limit=${limit}`
       );
-    </script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+
+      const data = response.data;
+
+      if (!data.data || data.data.length === 0) {
+        container.innerHTML = '<p class="error-message">No vehicles available at this time.</p>';
+        return;
+      }
+
+      displayVehicles(data.data);
+      setupPagination(data.pagination);
+    } catch (error) {
+      console.error("Error fetching vehicles:", error);
+      container.innerHTML = `<p class="error-message">Error loading vehicles: ${error.message}</p>`;
+    }
+  }
+
+  function displayVehicles(vehicles) {
+    const container = document.getElementById("vehicle-container");
+    container.innerHTML = '<div class="row vehicle-grid"></div>';
+    const grid = container.querySelector(".vehicle-grid");
+
+    vehicles.forEach((element) => {
+      const isFavorite = element.favorite || false;
+
+      const imageUrl =
+        element.images && element.images.length > 0
+          ? element.images[0]
+          : "https://via.placeholder.com/300x200?text=No+Image";
+
+      const card = document.createElement("div");
+      card.className = "card col-3";
+      card.setAttribute("data-id", element.id);
+
+      card.innerHTML = `
+        <div class="card-img">
+          <a href="./car-about.html?id=${element.id}">
+            <img src="${imageUrl}" class="car-img">
+          </a>
+          <p class="cars-years">${element.il || ""}</p>
+          <button class="heart-button btn btn-dark" style="border-radius: 50%;">
+            <i class="fa-${isFavorite ? "solid" : "regular"} fa-heart" style="color: ${
+        isFavorite ? "red" : "black"
+      };"></i>
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="card-title">
+            <a href="./car-about.html?id=${element.id}" class="car-title-name">
+              ${element.marka || ""} ${element.ad || ""}
+            </a>
+          </div>
+          <div class="card-cars-about row">
+            <div class="col-3">
+              <img src="./assets/img/seat.png" alt="" style="filter: grayscale(100%);">
+              <span class="passenger">${element.oturacaq || ""}</span>
+            </div>
+            <div class="col-3">
+              <img src="./assets/img/car-door (1).png" alt="">
+              <span class="car-door">${element.qabisayi || ""}</span>
+            </div>
+            <div class="col-3">
+              <img src="./assets/img/motor.png" alt="">
+              <span class="gear-stick">${element.motor || ""}</span>
+            </div>
+            <div class="col-3">
+              <img src="./assets/img/transport.png" alt="">
+              <span class="car-type">${element.sinif || ""}</span>
+            </div>
+          </div>
+          <div class="card-cars-price">
+            <a class="btn btn-danger" href="./car-about.html?id=${element.id}" style="border-radius: 55px;">Rent Now</a>
+            <p><span class="car-price">${element.qiymet || 0}</span> ₼ /günü</p>
+          </div>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+  }
+
+  function setupPagination(pagination) {
+    const paginationContainer = document.getElementById("pagination-container");
+    const infoContainer = document.getElementById("pagination-info");
+
+    if (!pagination || pagination.pages <= 1) {
+      paginationContainer.innerHTML = "";
+      infoContainer.innerHTML = "";
+      return;
+    }
+
+    infoContainer.innerHTML = `Page ${pagination.page} of ${pagination.pages} (${pagination.limit} items per page)`;
+
+    paginationContainer.innerHTML = `
+      <button ${pagination.page === 1 ? "disabled" : ""} onclick="changePage(1)">First</button>
+      <button ${pagination.page === 1 ? "disabled" : ""} onclick="changePage(${pagination.page - 1})">Previous</button>
+      ${generatePageButtons(pagination.page, pagination.pages)}
+      <button ${pagination.page === pagination.pages ? "disabled" : ""} onclick="changePage(${pagination.page + 1})">Next</button>
+      <button ${pagination.page === pagination.pages ? "disabled" : ""} onclick="changePage(${pagination.pages})">Last</button>
+    `;
+  }
+
+  function generatePageButtons(currentPage, totalPages) {
+    let buttons = "";
+    const maxButtons = 5;
+
+    let start = Math.max(1, currentPage - Math.floor(maxButtons / 2));
+    let end = Math.min(totalPages, start + maxButtons - 1);
+
+    if (end - start + 1 < maxButtons) {
+      start = Math.max(1, end - maxButtons + 1);
+    }
+
+    for (let i = start; i <= end; i++) {
+      buttons += `<button ${i === currentPage ? "disabled" : ""} onclick="changePage(${i})">${i}</button>`;
+    }
+
+    return buttons;
+  }
+
+  function changePage(newPage) {
+    currentPage = newPage;
+    fetchVehicles(currentPage);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // İlk yükləmə
+  document.addEventListener("DOMContentLoaded", () => fetchVehicles(currentPage));
+</script>
+
+ <script src="./assets/js/cars.js"></script>
   </body>
 </html>

@@ -1,4 +1,6 @@
+// // let cards = document.querySelector('.cards');
 // let cards = document.querySelector('.cards');
+// let Base_url = "http://localhost:8000";
 
 // Local Storage-dan favorit məlumatları oxuyuruq
 function getFavorites() {
@@ -15,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 let Base_url = "http://localhost:8000";
+console.log(Base_url);
 let cars = [];
 let filteredCars = []; // Filtrlənmiş maşınlar üçün
 let currentPage = 1;
