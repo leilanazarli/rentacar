@@ -423,24 +423,24 @@
           <div class="card-cars-about row">
             <div class="col-3">
               <img src="./assets/img/seat.png" alt="" style="filter: grayscale(100%);">
-              <span class="passenger">${element.oturacaq || ""}</span>
+              <span class="passenger">${element.seats || ""}</span>
             </div>
             <div class="col-3">
               <img src="./assets/img/car-door (1).png" alt="">
-              <span class="car-door">${element.qabisayi || ""}</span>
+              <span class="car-door">${element.doors || ""}</span>
             </div>
             <div class="col-3">
               <img src="./assets/img/motor.png" alt="">
-              <span class="gear-stick">${element.motor || ""}</span>
+              <span class="gear-stick">${element.gearKind || ""}</span>
             </div>
             <div class="col-3">
               <img src="./assets/img/transport.png" alt="">
-              <span class="car-type">${element.sinif || ""}</span>
+              <span class="car-type">${element.carClass || ""}</span>
             </div>
           </div>
           <div class="card-cars-price">
             <a class="btn btn-danger" href="./car-about.html?id=${element.id}" style="border-radius: 55px;">Rent Now</a>
-            <p><span class="car-price">${element.qiymet || 0}</span> ₼ /günü</p>
+            <p><span class="car-price">${element.price || 0}</span> ₼ /günü</p>
           </div>
         </div>
       `;
