@@ -25,7 +25,9 @@
     />
     <link rel="stylesheet" href="./assets/scss//main.css" />
 
-    <!-- <style>
+
+    <style>
+    
       /* Vehicle listing section */
       .cars-section2 {
         padding: 50px 0;
@@ -194,7 +196,7 @@
         color: var(--gray);
       }
 
-    </style> -->
+    </style>
 
     <title>Mamedov Rent A Car</title>
   </head>
@@ -264,9 +266,9 @@
           src="./assets/img/vehicle_on_fleet_banner.png"
           alt="Luxury and Comfort"
         />
-        <div class="overlay">
+        <div class="overlay" style="padding-top: 130px;">
           <p>TRANSPORTATION</p>
-          <h1>Luxury and Comfort</h1>
+          <h1 style="font-size: 30px;">Luxury and Comfort</h1>
         </div>
       </section>
 
@@ -415,7 +417,7 @@
         <div class="card-body">
           <div class="card-title">
             <a href="./car-about.html?id=${element.id}" class="car-title-name">
-              ${element.marka || ""} ${element.ad || ""}
+              ${element.marka} ${element.ad || ""}
             </a>
           </div>
           <div class="card-cars-about row">
@@ -495,7 +497,7 @@
   // İlk yükləmə
   document.addEventListener("DOMContentLoaded", () => fetchVehicles(currentPage));
 </script>
-
+<script src="./assets/js/common.js"></script>
  <script src="./assets/js/cars.js"></script>
   </body>
 </html>
