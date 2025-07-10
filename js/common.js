@@ -6,7 +6,7 @@ let logo=document.querySelector(".logo")
 function scrollFunction(){
     // console.log("helo");
     if(window.scrollY>100){
-        console.log(window.scrollY);
+        // console.log(window.scrollY);
         header_top_right.style.display="none"
         header.style.background="#0b1315"
         header_top.style.display="none"
